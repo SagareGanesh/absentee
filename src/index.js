@@ -5,11 +5,14 @@ import * as serviceWorker from './serviceWorker';
 import { IntlProvider, addLocaleData } from "react-intl";
 import enLocaleData from "react-intl/locale-data/en";
 import mrLocaleData from "react-intl/locale-data/mr";
+import 'jquery/dist/jquery.min.js';
+import 'popper.js/dist/umd/popper.min.js';
+import 'bootstrap/dist/js/bootstrap.min.js';
+import '@coreui/coreui/dist/js/coreui.min.js';
 
 import App from './containers/app';
 import './index.scss';
 import configureStore from './store';
-import '@coreui/coreui/dist/js/coreui.min.js';
 
 addLocaleData(enLocaleData);
 addLocaleData(mrLocaleData);
