@@ -1,0 +1,17 @@
+{
+  "resources": [
+    {
+      "name": "V1",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "Uploading a students file",
+          "link": "v1/uploading_a_students_file.json",
+          "groups": "all",
+          "route": "/students/upload",
+          "method": "post"
+        }
+      ]
+    }
+  ]
+}
