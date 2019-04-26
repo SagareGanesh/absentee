@@ -13,24 +13,39 @@ import messages from './messages';
 
 import styles from './styles';
 
+import { IntlProvider, addLocaleData } from "react-intl";
+import enMessages from "../../i18n/locales/en.json";
+import mrMessages from "../../i18n/locales/mr.json";
+import enLocaleData from "react-intl/locale-data/en";
+import mrLocaleData from "react-intl/locale-data/mr";
+
+addLocaleData(enLocaleData);
+addLocaleData(mrLocaleData);
+
+const localeMessages = {
+  'en': enMessages,
+  'mr': mrMessages,
+};
+
 class App extends Component {
   render() {
+    const { locale } = this.props;
     return (
-      <React.Fragment>
-        <FormattedMessage {...messages.App} />
-      </React.Fragment>
+      <IntlProvider locale={locale} messages={localeMessages[locale]}>
+        <React.Fragment>
+          <FormattedMessage {...messages.App} />
+        </React.Fragment>
+      </IntlProvider>
     );
   }
 }
 
 App.propTypes = {
-  propName1 : PropTypes.string,
-  propName2 : PropTypes.bool,
-  propName3 : PropTypes.array,
+  locale : PropTypes.string,
 }
 
 const mapStateToProps = state => ({
- ...state
+ locale: state.languageReducer.locale,
 })
 
 const mapDispatchToProps = dispatch => ({
