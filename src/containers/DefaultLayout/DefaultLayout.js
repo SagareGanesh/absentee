@@ -1,6 +1,8 @@
 import React, { Component, Suspense } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { Container } from 'reactstrap';
+import { connect } from 'react-redux';
+import { setLanguage } from '../../actions/language';
 
 import {
   AppAside,
@@ -30,6 +32,10 @@ class DefaultLayout extends Component {
   signOut(e) {
     e.preventDefault()
     this.props.history.push('/login')
+  }
+
+  setLanguage = (event) => {
+    this.props.setLanguage(event.target.value);
   }
 
   render() {
@@ -80,7 +86,8 @@ class DefaultLayout extends Component {
         </div>
         <AppFooter>
           <Suspense fallback={this.loading()}>
-            <DefaultFooter />
+            <DefaultFooter locale={this.props.locale}
+                           setLanguage={this.setLanguage}/>
           </Suspense>
         </AppFooter>
       </div>
@@ -88,4 +95,12 @@ class DefaultLayout extends Component {
   }
 }
 
-export default DefaultLayout;
+const mapStateToProps = state => ({
+  locale: state.languageReducer.locale,
+})
+
+const mapDispatchToProps = dispatch => ({
+  setLanguage: (locale) => dispatch(setLanguage(locale)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(DefaultLayout);
