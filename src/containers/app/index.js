@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 import Login from '../login/index.js';
+import DefaultLayout from '../layout/DefaultLayout.jsx';
 
 import styles from './styles';
 
@@ -29,7 +30,8 @@ class App extends Component {
       <IntlProvider locale={locale} messages={localeMessages[locale]}>
         <HashRouter>
           <Switch>
-            <Route path="/" name="Login" component={ Login } />
+            <Route exact={true} path="/" name="Login" component={ Login } />
+            <Route exact={true} path="*" name="*" component={ DefaultLayout } />
           </Switch>
         </HashRouter>
       </IntlProvider>
