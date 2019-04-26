@@ -10,4 +10,12 @@ export default defineMessages({
     id: 'Login.component.message',
     defaultMessage: 'Login',
   },
+  SigninAccount: {
+    id: 'SigninAccount.component.message',
+    defaultMessage: 'Sign In to your account',
+  },
+  ForgotPassword: {
+    id: 'ForgotPassword.component.message',
+    defaultMessage: 'Forgot password?',
+  },
 });
