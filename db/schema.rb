@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_26_150011) do
+ActiveRecord::Schema.define(version: 2019_04_26_145122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "class_rooms", force: :cascade do |t|
     t.string "name"
-    t.integer "class_name"
+    t.string "division"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "school_id"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2019_04_26_150011) do
 
   create_table "schools", force: :cascade do |t|
     t.string "name"
-    t.integer "school_type"
+    t.string "school_type"
     t.string "contact_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -34,13 +34,17 @@ ActiveRecord::Schema.define(version: 2019_04_26_150011) do
 
   create_table "students", force: :cascade do |t|
     t.string "name"
-    t.integer "roll_number"
+    t.string "roll_number"
+    t.string "notification_nos"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "division_id"
-    t.index ["division_id"], name: "index_students_on_division_id"
+    t.bigint "class_room_id"
+    t.bigint "school_id"
+    t.index ["class_room_id"], name: "index_students_on_class_room_id"
+    t.index ["school_id"], name: "index_students_on_school_id"
   end
 
   add_foreign_key "class_rooms", "schools"
-  add_foreign_key "students", "class_rooms", column: "division_id"
+  add_foreign_key "students", "class_rooms"
+  add_foreign_key "students", "schools"
 end
