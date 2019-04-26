@@ -8,6 +8,7 @@ import routes from '../../routes.js';
 import navigation from '../../_nav';
 import DefaultHeader from './DefaultHeader.jsx';
 import Footer from '../footer/index.js';
+import { Nav, NavItem, NavLink } from 'reactstrap';
 
 // import path from '../../apis/path.js';
 // import CustomBreadcrumb from '../../components/shared/breadcrumbs';
@@ -24,7 +25,17 @@ class DefaultLayout extends React.Component {
           <AppSidebar fixed display="lg">
             <AppSidebarHeader />
             <AppSidebarForm />
-            <AppSidebarNav navConfig={navigation} {...this.props} />
+            <Nav vertical>
+              <NavItem>
+                <NavLink href="#/classes">Classes</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="#/teachers">Teachers</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="#/students">Students</NavLink>
+              </NavItem>
+            </Nav>
             <AppSidebarFooter />
             <AppSidebarMinimizer />
           </AppSidebar>
