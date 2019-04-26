@@ -10,7 +10,12 @@ const image = {
   height: '100%',
 };
 
+const marginAuto = {
+  margin: 'auto',
+};
+
 export default {
   absolute,
   image,
+  marginAuto,
 };
