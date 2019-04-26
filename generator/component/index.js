@@ -15,22 +15,22 @@ module.exports = {
         actions: function(data) {
             var actions = [{
                 type: 'add',
-                path: '../src/components/{{camelCase name}}.js',
+                path: '../src/components/{{camelCase name}}/index.js',
                 templateFile: './component/component.hbs'
             }];
 
             if(data.wantCSS) {
                 actions.push({
                     type: 'add',
-                    path: '../src/components/styles.js',
+                    path: '../src/components/{{camelCase name}}/styles.js',
                     templateFile: './component/style.hbs'
                 });
             }
             if(data.wantMesaages) {
                 actions.push({
                     type: 'add',
-                    path: '../src/components/messages.js',
-                    templateFile: './component/messages.hbs'
+                    path: '../src/components/{{camelCase name}}/messages.js',
+                    templateFile: './component/message.hbs'
                 });
             }
             return actions;
