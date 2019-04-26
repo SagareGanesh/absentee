@@ -1,6 +1,6 @@
 /**
  *
- * StudentComponent
+ * AttendanceComponent
  *
  */
 
@@ -12,7 +12,7 @@ import messages from './messages';
 
 import styles from './styles';
 
-class StudentComponent extends Component {
+class AttendanceComponent extends Component {
   render() {
     return (
       <React.Fragment>
@@ -22,10 +22,10 @@ class StudentComponent extends Component {
   }
 }
 
-StudentComponent.propTypes = {
+AttendanceComponent.propTypes = {
   propName1 : PropTypes.string,
   propName2 : PropTypes.bool,
   propName3 : PropTypes.array,
 }
 
-export default StudentComponent;
+export default AttendanceComponent;

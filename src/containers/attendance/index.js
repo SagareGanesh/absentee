@@ -53,7 +53,7 @@ class Attendance extends Component {
     //   }]
     // }];
     const { absentStudents } = this.state;
-    const { data } = this.props.studentReduecer;
+    const { data } = this.props.attendance;
     return (
       <Card>
         <CardBody>
@@ -71,6 +71,20 @@ class Attendance extends Component {
                     </Col>
                   </Row>
                   <hr />
+                  <Row className="ml-0">
+                   { data[standard][division].map((student,index) => (
+                     <React.Fragment>
+                       <UncontrolledTooltip placement="top" target={"rollno" + index }>
+                         {student.name}
+                       </UncontrolledTooltip>
+                       <Button onClick={() => this.setAbsent(student.id)} id={ "rollno" + index}
+                         color={absentStudents.includes(student.id) ? "danger" : "success"} className="student mr-3" key={index}>
+                         <div>{student.id}</div>
+                       </Button>
+                     </React.Fragment>
+                   ))}
+                 </Row>
+                 <hr />
                 </React.Fragment>
               ))}
             </React.Fragment>
@@ -88,7 +102,7 @@ Attendance.propTypes = {
 }
 
 const mapStateToProps = state => ({
- ...state
+  attendance: state.attendanceReduecr,
 })
 
 const mapDispatchToProps = dispatch => ({
