@@ -9,6 +9,8 @@ import 'jquery/dist/jquery.min.js';
 import 'popper.js/dist/umd/popper.min.js';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import '@coreui/coreui/dist/js/coreui.min.js';
+import enMessages from "./i18n/locales/en.json";
+import mrMessages from "./i18n/locales/mr.json";
 
 import App from './containers/app';
 import './index.scss';
@@ -17,12 +19,16 @@ import configureStore from './store';
 addLocaleData(enLocaleData);
 addLocaleData(mrLocaleData);
 
+const messages = {
+  'en': enMessages,
+  'mr': mrMessages,
+};
 /**************************
 * Render setup
 *************************/
 const MOUNT_NODE = document.getElementById('root');
 ReactDOM.render(
-  <IntlProvider locale="en">
+  <IntlProvider locale="en" messages={messages["en"]}>
     <Provider store={configureStore()}>
       <App />
    </Provider>

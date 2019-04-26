@@ -1,0 +1,7 @@
+[
+  {
+    "id": "App.component.message",
+    "defaultMessage": "App",
+    "filepath": "src/containers/app/messages.js"
+  }
+]
