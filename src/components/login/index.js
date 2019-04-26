@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
+import background from '../../assets/images/5.jpg';
 
 import styles from './styles';
 
@@ -17,9 +18,12 @@ class LoginComponent extends Component {
   render() {
     return (
       <div className="app flex-row align-items-center">
+        <Row style={styles.absolute}>
+          <img style={styles.image} src={background} alt="background" />
+        </Row>
         <Container>
           <Row className="justify-content-center">
-            <Col md="8">
+            <Col md="5">
               <CardGroup>
                 <Card className="p-4">
                   <CardBody>
@@ -44,7 +48,7 @@ class LoginComponent extends Component {
                       </InputGroup>
                       <Row>
                         <Col xs="6">
-                          <Button color="primary" className="px-4">Login</Button>
+                          <Button onClick={this.props.login} color="primary" className="px-4">Login</Button>
                         </Col>
                         <Col xs="6" className="text-right">
                           <Button color="link" className="px-0">Forgot password?</Button>
@@ -63,9 +67,7 @@ class LoginComponent extends Component {
 }
 
 LoginComponent.propTypes = {
-  propName1 : PropTypes.string,
-  propName2 : PropTypes.bool,
-  propName3 : PropTypes.array,
+  login : PropTypes.func.isRequired,
 }
 
 export default LoginComponent;

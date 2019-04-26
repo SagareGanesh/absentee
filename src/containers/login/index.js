@@ -10,10 +10,15 @@ import { connect } from 'react-redux';
 import LoginComponent from '../../components/login/index.js';
 
 class Login extends Component {
+  login = () => {
+    this.props.history.push('/dashboard');
+  }
+
   render() {
-    console.log("login")
     return (
-      <LoginComponent />
+      <LoginComponent
+        login={this.login}
+      />
     );
   }
 }
