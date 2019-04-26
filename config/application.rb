@@ -10,7 +10,7 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
 require "action_cable/engine"
-# require "sprockets/railtie"
+require "sprockets/railtie"
 require "rails/test_unit/railtie"
 require 'apartment/elevators/first_subdomain'
 
@@ -22,6 +22,7 @@ module Parenotify
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
+    config.autoload_paths += Dir["#{config.root}/app/services/"]
 
     config.middleware.use Apartment::Elevators::FirstSubdomain
     # Settings in config/environments/* take precedence over those specified here.

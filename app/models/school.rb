@@ -9,7 +9,17 @@ class School < ApplicationRecord
     short_name
   end
 
-  private
+  def self.current_id=(id)
+    Thread.current[:school_id] = id
+  end
+
+  def self.current_id
+    Thread.current[:school_id]
+  end
+
+  def self.set_ryan
+    School.current_id = School.find_by(short_name: 'ryan').id
+  end
 
   def create_tenant
     Apartment::Tenant.create(tenant_name)
