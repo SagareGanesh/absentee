@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import * as serviceWorker from './serviceWorker';
-import './index.css';
+import './index.scss';
 import configureStore from './store';
+import '@coreui/coreui/dist/js/coreui.min.js';
 
 
 /**************************
