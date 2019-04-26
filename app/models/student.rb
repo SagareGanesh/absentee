@@ -1,3 +1,3 @@
 class Student < ApplicationRecord
-  belongs_to :division
+  belongs_to :class_room
 end

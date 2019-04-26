@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_26_145122) do
+ActiveRecord::Schema.define(version: 2019_04_26_150011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "divisions", force: :cascade do |t|
+  create_table "class_rooms", force: :cascade do |t|
     t.string "name"
     t.integer "class_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "school_id"
-    t.index ["school_id"], name: "index_divisions_on_school_id"
+    t.index ["school_id"], name: "index_class_rooms_on_school_id"
   end
 
   create_table "schools", force: :cascade do |t|
@@ -41,6 +41,6 @@ ActiveRecord::Schema.define(version: 2019_04_26_145122) do
     t.index ["division_id"], name: "index_students_on_division_id"
   end
 
-  add_foreign_key "divisions", "schools"
-  add_foreign_key "students", "divisions"
+  add_foreign_key "class_rooms", "schools"
+  add_foreign_key "students", "class_rooms", column: "division_id"
 end
