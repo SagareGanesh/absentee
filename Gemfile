@@ -10,7 +10,7 @@ gem 'puma', '~> 3.11'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'jwt'
-gem 'apitome'
+#gem 'apitome'
 gem 'versionist'
 gem 'rack-cors', :require => 'rack/cors'
 
@@ -22,7 +22,7 @@ end
 
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'spring'
+  #gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
