@@ -1,5 +1,9 @@
 @import "~@coreui/coreui/scss/coreui.scss";
 @import '~@coreui/coreui/scss/_dropdown-menu-right.scss';
+@import '~@coreui/icons/css/coreui-icons.css';
+@import '~flag-icon-css/css/flag-icon.min.css';
+@import '~font-awesome/css/font-awesome.min.css';
+@import '~simple-line-icons/css/simple-line-icons.css';
 
 body {
   margin: 0;
@@ -9,7 +13,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: white;
 }
 
 code {

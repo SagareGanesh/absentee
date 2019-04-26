@@ -1,15 +1,10 @@
-/**
- *
- * App
- *
- */
-
 import React, { Component } from 'react';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
+import Login from '../login/index.js';
 
 import styles from './styles';
 
@@ -32,9 +27,11 @@ class App extends Component {
     const { locale } = this.props;
     return (
       <IntlProvider locale={locale} messages={localeMessages[locale]}>
-        <React.Fragment>
-          <FormattedMessage {...messages.App} />
-        </React.Fragment>
+        <HashRouter>
+          <Switch>
+            <Route path="/" name="Login" component={ Login } />
+          </Switch>
+        </HashRouter>
       </IntlProvider>
     );
   }
