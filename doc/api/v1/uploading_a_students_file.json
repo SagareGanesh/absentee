@@ -22,6 +22,7 @@
       "request_headers": {
         "Accept": "application/vnd.parenotify.com; version=1",
         "Content-Type": "multipart/form-data; boundary=----------XnJLe9ZIbbGUYtzPQJ16u1",
+        "X-Api-Key": "94b2fff3e7fd9b9c391a2306",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -35,8 +36,8 @@
         "Content-Type": "application/json; charset=utf-8",
         "ETag": "W/\"6be3f2c14bb7e48871404526fe49ff5f\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "8ced0b12-c69a-49a9-85eb-4976db383b64",
-        "X-Runtime": "0.015264",
+        "X-Request-Id": "f1eb0932-40c2-4408-9e7e-5e7644f57c93",
+        "X-Runtime": "0.004652",
         "Content-Length": "40"
       },
       "response_content_type": "application/json; charset=utf-8",

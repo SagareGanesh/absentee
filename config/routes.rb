@@ -6,5 +6,12 @@ Rails.application.routes.draw do
         post :upload
       end
     end
+
+    resources :attendance do
+      collection do
+        post :submit
+      end
+    end
+
   end
 end

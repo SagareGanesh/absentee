@@ -19,6 +19,8 @@ group :development, :test do
   gem "rspec_api_documentation"
   gem "rspec-rails"
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'factory_bot'
+  gem 'faker'
 end
 
 group :development do

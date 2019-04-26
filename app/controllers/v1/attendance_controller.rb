@@ -10,6 +10,6 @@ class V1::AttendanceController < V1::BaseController
   # result = create attendance record
   def submit
     result = AttendanceService.new(params).submit
-    render render json: { success: result }
+    render json: { success: result }
   end
 end

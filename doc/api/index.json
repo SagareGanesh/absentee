@@ -5,6 +5,13 @@
       "explanation": null,
       "examples": [
         {
+          "description": "Submitting attendance",
+          "link": "v1/submitting_attendance.json",
+          "groups": "all",
+          "route": "/attendance/submit",
+          "method": "post"
+        },
+        {
           "description": "Uploading a students file",
           "link": "v1/uploading_a_students_file.json",
           "groups": "all",
