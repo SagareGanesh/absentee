@@ -11,14 +11,14 @@ const Dashboard = Loadable({
   loading: Loading
 });
 
-const Student = Loadable({
-  loader: () => import('./containers/student/index.js'),
+const Attendance = Loadable({
+  loader: () => import('./containers/attendance/index.js'),
   loading: Loading
 });
 
 const routes = [
   { path: '/', exact: true, name: 'Dashboard', component: Dashboard, details: 'Dashboard' },
-  { path: '/students', exact: true, name: 'Student', component: Student, details: 'Student' }
+  { path: '/attendance', exact: true, name: 'Attendance', component: Attendance, details: 'Attendance' }
 ]
 
 export default routes;

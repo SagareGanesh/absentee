@@ -5,19 +5,19 @@ const initialState = {
   error: null,
 };
 
-const studentReduecr = (state = initialState, action) => {
+const attendanceReduecr = (state = initialState, action) => {
  switch (action.type) {
-  case 'FETCH_STUDENTS': return {
+  case 'FETCH_ATTENDANCE': return {
     data: {},
     loading: true,
     error: null,
   }
-  case 'FETCH_STUDENTS_SUCCESS': return {
+  case 'FETCH_ATTENDANCE_SUCCESS': return {
     data: action.payload,
     loading: false,
     error: null,
   }
-  case 'FETCH_STUDENTS_FAIL': return {
+  case 'FETCH_ATTENDANCE_FAIL': return {
     data: {},
     loading: false,
     error: action.payload,
@@ -25,4 +25,4 @@ const studentReduecr = (state = initialState, action) => {
   default: return state
  }
 }
-export default studentReduecr;
+export default attendanceReduecr;

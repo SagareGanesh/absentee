@@ -1,28 +1,26 @@
-import { FETCH_STUDENTS } from '../utils/constant';
-
-const fetchStudentsInitiate = () => {
+const fetchAttendanceInitiate = () => {
   return {
-    type: 'FETCH_STUDENTS'
+    type: 'FETCH_ATTENDANCE'
   }
 }
 
-const fetchStudentsSuccess = (data) => {
+const fetchAttendanceSuccess = (data) => {
   return {
-    type: 'FETCH_STUDENTS_SUCCESS',
+    type: 'FETCH_ATTENDANCE_SUCCESS',
     payload: data,
   }
 }
 
-const fetchStudentsFail = (error) => {
+const fetchAttendanceFail = (error) => {
   return {
-    type: 'FETCH_STUDENTS_FAIL',
+    type: 'FETCH_ATTENDANCE_FAIL',
     payload: error,
   }
 }
 
-export const fetchStudents = () => {
+export const fetchAttendance = () => {
   return (dispatch) => {
-    dispatch(fetchStudentsInitiate());
+    dispatch(fetchAttendanceInitiate());
     fetch(`http://192.168.1.87:3000/students`, {
       method: 'GET',
       headers: {
@@ -34,10 +32,10 @@ export const fetchStudents = () => {
       return response.json()
     })
     .then(data => {
-      dispatch(fetchStudentsSuccess(data));
+      dispatch(fetchAttendanceSuccess(data));
     })
     .catch((error) => {
-      dispatch(fetchStudentsFail(error));
+      dispatch(fetchAttendanceFail(error));
     })
   }
 }

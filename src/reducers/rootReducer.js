@@ -1,8 +1,8 @@
 import languageReducer from './language';
-import studentReduecr from './students';
+import attendanceReduecr from './attendance';
 import { combineReducers } from 'redux';
 
 export default combineReducers({
   languageReducer,
-  studentReduecr,
+  attendanceReduecr,
 });
