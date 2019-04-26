@@ -9,7 +9,6 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
-import { AppFooter } from '@coreui/react';
 import messages from './messages';
 import background from '../../assets/images/5.jpg';
 import logo from '../../assets/images/logo.png';
@@ -19,7 +18,7 @@ import styles from './styles';
 class LoginComponent extends Component {
   render() {
     return (
-      <>
+      <React.Fragment>
         <div className="app flex-row align-items-center">
           <Row style={styles.absolute}>
             <img style={styles.image} src={background} alt="background" />
@@ -80,10 +79,7 @@ class LoginComponent extends Component {
             </Row>
           </Container>
         </div>
-        <AppFooter>
-          <Footer />
-        </AppFooter>
-      </>
+      </React.Fragment>
     );
   }
 }

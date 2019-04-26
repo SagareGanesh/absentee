@@ -8,6 +8,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import LoginComponent from '../../components/login/index.js';
+import Footer from '../footer';
 
 class Login extends Component {
   login = () => {
@@ -16,9 +17,10 @@ class Login extends Component {
 
   render() {
     return (
-      <LoginComponent
-        login={this.login}
-      />
+      <React.Fragment>
+        <LoginComponent login={this.login} />
+        <Footer />
+      </React.Fragment>
     );
   }
 }

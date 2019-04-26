@@ -1,3 +1,7 @@
 {
-  "App.component.message": "App"
+  "App.component.message": "App",
+  "Footer.component.message": "rights Josh software pvt.ltd",
+  "ForgotPassword.component.message": "Forgot password?",
+  "Login.component.message": "Login",
+  "SigninAccount.component.message": "Sign In to your account"
 }

@@ -8,6 +8,10 @@ import { defineMessages } from 'react-intl';
 export default defineMessages({
   Footer: {
     id: 'Footer.component.message',
-    defaultMessage: 'Footer',
+    defaultMessage: 'rights Josh software pvt.ltd',
+  },
+  Language: {
+    id: 'Language.component.message',
+    defaultMessage: 'Language:',
   },
 });

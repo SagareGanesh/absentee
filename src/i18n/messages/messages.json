@@ -1,5 +1,25 @@
 [
   {
+    "id": "Footer.component.message",
+    "defaultMessage": "Footer",
+    "filepath": "src/components/footer/messages.js"
+  },
+  {
+    "id": "Login.component.message",
+    "defaultMessage": "Login",
+    "filepath": "src/components/login/messages.js"
+  },
+  {
+    "id": "SigninAccount.component.message",
+    "defaultMessage": "Sign In to your account",
+    "filepath": "src/components/login/messages.js"
+  },
+  {
+    "id": "ForgotPassword.component.message",
+    "defaultMessage": "Forgot password?",
+    "filepath": "src/components/login/messages.js"
+  },
+  {
     "id": "App.component.message",
     "defaultMessage": "App",
     "filepath": "src/containers/app/messages.js"

@@ -6,30 +6,39 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Row } from 'reactstrap';
+import { Row, Input, Label, FormGroup, Form } from 'reactstrap';
+import { AppFooter } from '@coreui/react';
 
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 
 import styles from './styles';
 
-class Footer extends Component {
+class FooterComponent extends Component {
   render() {
+    const { locale, setLanguage } = this.props;
     return (
-      <Row>
-      <React.Fragment>
-        <span><a href="https://coreui.io">CoreUI</a> &copy; 2018 creativeLabs.</span>
-        <span className="ml-auto">Powered by <a href="https://coreui.io/react">CoreUI for React</a></span>
-    </React.Fragment>
-    </Row>
+      <AppFooter>
+        <span>&copy; <FormattedMessage {...messages.Footer} /></span>
+        <span className="ml-auto">
+          <Form inline>
+            <FormGroup>
+              <Label><FormattedMessage {...messages.Language} />&nbsp;</Label>
+              <Input onChange={(event) => setLanguage(event)} value={locale} size="sm" type="select" name="select" id="exampleSelect">
+                <option value="en">English</option>
+                <option value="mr">Marathi</option>
+              </Input>
+            </FormGroup>
+          </Form>
+        </span>
+      </AppFooter>
     );
   }
 }
 
-Footer.propTypes = {
-  propName1 : PropTypes.string,
-  propName2 : PropTypes.bool,
-  propName3 : PropTypes.array,
+FooterComponent.propTypes = {
+  locale : PropTypes.string.isRequired,
+  setLanguage : PropTypes.func.isRequired,
 }
 
-export default Footer;
+export default FooterComponent;
