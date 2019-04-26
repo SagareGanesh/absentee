@@ -18,20 +18,22 @@ class FooterComponent extends Component {
   render() {
     const { locale, setLanguage } = this.props;
     return (
-      <AppFooter>
-        <span>&copy; <FormattedMessage {...messages.Footer} /></span>
-        <span className="ml-auto">
-          <Form inline>
-            <FormGroup>
-              <Label><FormattedMessage {...messages.Language} />&nbsp;</Label>
-              <Input onChange={(event) => setLanguage(event)} value={locale} size="sm" type="select" name="select" id="exampleSelect">
-                <option value="en">English</option>
-                <option value="mr">Marathi</option>
-              </Input>
-            </FormGroup>
-          </Form>
-        </span>
-      </AppFooter>
+      <div className="app-home-footer">
+        <AppFooter>
+          <span>&copy; <FormattedMessage {...messages.Footer} /></span>
+          <span className="ml-auto">
+            <Form inline>
+              <FormGroup>
+                <Label><FormattedMessage {...messages.Language} />&nbsp;</Label>
+                <Input onChange={(event) => setLanguage(event)} value={locale} size="sm" type="select" name="select" id="exampleSelect">
+                  <option value="en">English</option>
+                  <option value="mr">Marathi</option>
+                </Input>
+              </FormGroup>
+            </Form>
+          </span>
+        </AppFooter>
+      </div>
     );
   }
 }

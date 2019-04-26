@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import routes from '../../routes.js';
 import navigation from '../../_nav';
 import DefaultHeader from './DefaultHeader.jsx';
-import Footer from '../footer/index.js';
+import DefaultFooter from './DefaultFooter.jsx';
 import { Nav, NavItem, NavLink } from 'reactstrap';
 
 // import path from '../../apis/path.js';
@@ -59,7 +59,9 @@ class DefaultLayout extends React.Component {
             </Container>
           </main>
         </div>
-        <Footer/>
+        <AppFooter>
+          <DefaultFooter />
+        </AppFooter>
       </div>
     )
   };
@@ -73,6 +75,5 @@ const mapStateToProps = (state) => {
 
 export default connect(
   mapStateToProps,
-  {
-  }
+  {}
 )(DefaultLayout);
