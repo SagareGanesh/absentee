@@ -13,6 +13,7 @@ gem 'jwt'
 #gem 'apitome'
 gem 'versionist'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'apartment'
 
 group :development, :test do
   gem "rspec_api_documentation"
