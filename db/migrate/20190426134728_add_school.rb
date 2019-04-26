@@ -4,7 +4,6 @@ class AddSchool < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :school_type
       t.string :contact_number
-      t.timestamps
     end
   end
 end
