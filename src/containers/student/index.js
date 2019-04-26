@@ -53,6 +53,7 @@ class Student extends Component {
       }]
     }];
     const { absentStudents } = this.state;
+    // const { data } = this.props.studentReduecer;
     return (
       <Card>
         <CardBody>
