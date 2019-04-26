@@ -3,8 +3,12 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import * as serviceWorker from './serviceWorker';
-import './index.css';
+import './index.scss';
 import configureStore from './store';
+import 'jquery/dist/jquery.min.js';
+import 'popper.js/dist/umd/popper.min.js';
+import 'bootstrap/dist/js/bootstrap.min.js';
+import '@coreui/coreui/dist/js/coreui.min.js';
 
 
 /**************************

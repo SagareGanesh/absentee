@@ -1,8 +1,6 @@
-// Import styles
 @import "~@coreui/coreui/scss/coreui.scss";
-
-// Temp fix for reactstrap
 @import '~@coreui/coreui/scss/_dropdown-menu-right.scss';
+
 body {
   margin: 0;
   padding: 0;
@@ -11,6 +9,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: white;
 }
 
 code {
