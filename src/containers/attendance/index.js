@@ -38,59 +38,46 @@ class Attendance extends Component {
   }
 
   render() {
-    // const data = [{
-    //   class: '9th',
-    //   div: 'A',
-    //   data: [{
-    //     id: 1,
-    //     name: 'AAAAA',
-    //   },{
-    //     id: 2,
-    //     name: 'BBBBB',
-    //   },{
-    //     id: 3,
-    //     name: 'CCCC',
-    //   }]
-    // }];
     const { absentStudents } = this.state;
     const { data } = this.props.attendance;
     return (
-      <Card>
-        <CardBody>
-          { Object.keys(data).map((standard, index) => (
+      <React.Fragment>
+        { Object.keys(data).map((standard, index) => (
             <React.Fragment>
               { Object.keys(data[standard]).map((division, index) => (
-                <React.Fragment>
-                  <Row>
-                    <Col sm={9}>
-                      <span className="pr-2">Class: <b>{standard}</b></span>
-                      <span>Division: <b>{division}</b></span>
-                    </Col>
-                    <Col sm={3} align="right">
-                      <Button size="sm" color="success">Submit Attendance</Button>
-                    </Col>
-                  </Row>
-                  <hr />
-                  <Row className="ml-0">
-                   { data[standard][division].map((student,index) => (
-                     <React.Fragment>
-                       <UncontrolledTooltip placement="top" target={"rollno" + index }>
-                         {student.name}
-                       </UncontrolledTooltip>
-                       <Button onClick={() => this.setAbsent(student.id)} id={ "rollno" + index}
-                         color={absentStudents.includes(student.id) ? "danger" : "success"} className="student mr-3" key={index}>
-                         <div>{student.id}</div>
-                       </Button>
-                     </React.Fragment>
-                   ))}
-                 </Row>
-                 <hr />
-                </React.Fragment>
+                <Card>
+                <CardBody>
+                  <React.Fragment>
+                    <Row>
+                      <Col sm={9}>
+                        <span className="pr-2">Class: <b>{standard}</b></span>
+                        <span>Division: <b>{division}</b></span>
+                      </Col>
+                      <Col sm={3} align="right">
+                        <Button size="sm" color="primary">Submit Attendance</Button>
+                      </Col>
+                    </Row>
+                    <hr />
+                    <Row className="ml-0">
+                     { data[standard][division].map((student,index) => (
+                       <React.Fragment>
+                         <UncontrolledTooltip placement="top" target={"student" + student.id }>
+                           {student.name}
+                         </UncontrolledTooltip>
+                         <Button onClick={() => this.setAbsent(student.id)} id={ "student" + student.id}
+                           color={absentStudents.includes(student.id) ? "danger" : "success"} className="student mr-3" key={index}>
+                           <div>{student.roll_number}</div>
+                         </Button>
+                       </React.Fragment>
+                     ))}
+                   </Row>
+                  </React.Fragment>
+                </CardBody>
+                </Card>
               ))}
             </React.Fragment>
-          ))}
-        </CardBody>
-      </Card>
+        ))}
+      </React.Fragment>
     );
   }
 }
