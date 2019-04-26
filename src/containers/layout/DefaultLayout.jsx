@@ -27,19 +27,13 @@ class DefaultLayout extends React.Component {
             <AppSidebarForm />
             <Nav vertical>
               <NavItem>
-                <NavLink href="#/classes">Classes</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="#/teachers">Teachers</NavLink>
-              </NavItem>
-              <NavItem>
                 <NavLink href="#/students">Students</NavLink>
               </NavItem>
             </Nav>
             <AppSidebarFooter />
             <AppSidebarMinimizer />
           </AppSidebar>
-          <main className="main">
+          <main className="main p-4">
             <Container fluid>
               <Switch>
                 {
