@@ -2,6 +2,14 @@ class School < ApplicationRecord
   has_many :users, dependent: :destroy
   has_many :students, dependent: :destroy
   has_many :attendance, dependent: :destroy
+  has_many :attendance_status, dependent: :destroy
+
+  def attendace_list(date)
+    {
+      students:   grouped_stundents,
+      attendance: attendace_status_for(date)
+    }
+  end
 
   def grouped_stundents
     students_list = {}
@@ -18,6 +26,36 @@ class School < ApplicationRecord
       students_list.merge!(class_students)
     end
     students_list
+  end
+
+  def attendace_status_for(date)
+    status_data = attendance_status
+      .where(date: date)
+      .pluck(:class_name, :division)
+
+    data = {}
+    class_wise_division.each do |class_name, divisions|
+      data[class_name] =
+        divisions.inject({}) do |hash, division|
+          hash[division] = status_data.include?([class_name, division])
+          hash
+        end
+    end
+
+    data
+  end
+
+  def class_wise_division
+    class_division = Student.pluck(:class_name, :division).uniq
+    class_division_info = class_division.group_by{ |a| a[0] }
+
+    class_division_info.each do |class_name, divisions|
+      arr = divisions.flatten
+      arr.delete(class_name)
+      class_division_info[class_name] = arr
+    end
+
+    class_division_info
   end
 
   def self.current_id=(id)

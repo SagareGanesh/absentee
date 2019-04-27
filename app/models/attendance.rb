@@ -3,4 +3,5 @@ class Attendance < ApplicationRecord
 
   belongs_to :school
   belongs_to :student
+  belongs_to :attendance_status
 end

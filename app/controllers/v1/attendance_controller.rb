@@ -1,7 +1,7 @@
 class V1::AttendanceController < V1::BaseController
 
   def index
-    render json: @current_school.grouped_stundents, status: 200
+    render json: @current_school.attendace_list(Date.today), status: 200
   end
 
   ## submit absent student list
@@ -15,6 +15,6 @@ class V1::AttendanceController < V1::BaseController
   # result = create attendance record
   def submit
     result = AttendanceService.new(params).submit
-    render json: @current_school.grouped_stundents
+    render json:  @current_school.attendace_list(Date.today), status: 200
   end
 end
