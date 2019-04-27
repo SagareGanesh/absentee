@@ -36,3 +36,7 @@
   font-weight: bolder;
   font-size: larger;
 }
+
+.btn.disabled {
+  opacity: 0.40 !important;
+}

@@ -68,13 +68,13 @@ class AttendanceComponent extends Component {
         <CardBody>
           <React.Fragment>
             <Row>
-              <Col sm={9}>
+              <Col sm={9} style={styles.fontSize20px}>
                 <span className="pr-2">
-                  <FormattedMessage {...messages.Class} />:
+                  <FormattedMessage {...messages.Class} />:&nbsp;
                   <b>{standard}</b>
                 </span>
                 <span>
-                  <FormattedMessage {...messages.Division} />:
+                  <FormattedMessage {...messages.Division} />:&nbsp;
                   <b>{division}</b>
                 </span>
               </Col>
