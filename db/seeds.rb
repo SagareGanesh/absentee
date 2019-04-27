@@ -27,7 +27,7 @@ if language == 'English'
   first_names = %w[Ganesh Akshay Swati Pragati Pramod Yogesh Anil Pinky Payal Priyanka]
   last_names  = %w[Yadav Bhalerav Raut Mayura Khatar Shinde Garud Jadhav Kakade Sagare]
   mobile_number = '9921998433'
-  acd_year      = '2020'
+  acd_year      = '2019'
   roll_nos      = (101..200).to_a
 
   classes.each do |class_name|
@@ -78,7 +78,7 @@ else
   first_names = %w[गणेश अक्षय स्वाती प्रगती प्रमोद योगेश अनिल पिंकी पायल प्रियंका]
   last_names  = %w[यादव भालेरव राऊत मयूर खटार शिंदे गरुड जाधव काकडे सागर]
   mobile_number = '९९२१९९८४३३'
-  acd_year      = '२०२०'
+  acd_year      = '२०१९'
   roll_nos      = ('१०१'..'२००').to_a
 
   classes.each do |class_name|
