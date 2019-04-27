@@ -49,13 +49,9 @@ App.propTypes = {
   locale : PropTypes.string,
 }
 
-const mapStateToProps = state => {
-  console.log(state);
-  return {
-    locale: state.languageReducer.locale,
-    location: state.location,
-  }
-}
+const mapStateToProps = state => ({
+  locale: state.languageReducer.locale,
+})
 
 const mapDispatchToProps = dispatch => ({
 })

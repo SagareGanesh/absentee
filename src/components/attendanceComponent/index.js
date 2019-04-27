@@ -7,7 +7,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Card, CardBody, Col, Row, Button, UncontrolledTooltip } from 'reactstrap';
-
+import confirm from 'reactstrap-confirm';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 
@@ -17,8 +17,18 @@ class AttendanceComponent extends Component {
   constructor(props) {
     super(props);
     this.state= {
-      absentStudents: [],
+      absentStudents: this.getAbsentList(props.list),
     }
+  }
+
+  getAbsentList = (list) => {
+    let data = [];
+    list.map((student) => {
+      if(student.attendace_id) {
+        data.push(student.id);
+      }
+    })
+    return data;
   }
 
   setAbsent = (id) => {
@@ -33,9 +43,25 @@ class AttendanceComponent extends Component {
     })
   }
 
+  submitAttendance = async (data) => {
+    let result = await confirm({
+      title: (
+          <React.Fragment>
+            <strong>Submit Attendance</strong>
+          </React.Fragment>
+      ),
+      message: "Are you sure you want to submit attendance?",
+      confirmText: "Submit",
+      confirmColor: "primary",
+      cancelColor: "link text-danger"
+    });
+    if(result) {
+      this.props.submitAttendance(data);
+    }
+  }
   render() {
     const { absentStudents } = this.state;
-    const { standard, division, list, submitAttendance } = this.props;
+    const { standard, division, list } = this.props;
     return (
       <Card>
         <CardBody>
@@ -47,12 +73,12 @@ class AttendanceComponent extends Component {
                   <b>{standard}</b>
                 </span>
                 <span>
-                  <FormattedMessage {...messages.Division} /> :
+                  <FormattedMessage {...messages.Division} />:
                   <b>{division}</b>
                 </span>
               </Col>
               <Col sm={3} align="right">
-                <Button size="sm" onClick={() => submitAttendance({ standard, division, absentStudents, schoolId: list[0].school_id })} color="primary">
+                <Button size="sm" onClick={() => this.submitAttendance({ standard, division, absentStudents, schoolId: list[0].school_id })} color="primary">
                    <FormattedMessage {...messages.SubmitAttendance} />
                 </Button>
               </Col>

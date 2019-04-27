@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 import { fetchAttendance, submitAttendance } from '../../actions/attendance';
 import AttendanceComponent from '../../components/attendanceComponent';
 import { FormattedMessage } from 'react-intl';
+import Spinner from '../../components/shared/spinner';
 import messages from './messages';
 
 class Attendance extends Component {
@@ -27,21 +28,27 @@ class Attendance extends Component {
   }
 
   render() {
-    const { data } = this.props.attendance;
+    const { data, loading } = this.props.attendance;
     return (
       <div className="pt-3">
-        { Object.keys(data).map((standard, index) => (
-            <React.Fragment>
-              { Object.keys(data[standard]).map((division, index) => (
-                <AttendanceComponent
-                  standard={standard}
-                  division={division}
-                  list={data[standard][division]}
-                  submitAttendance={this.submitAttendance}
-                />
-              ))}
-            </React.Fragment>
-        ))}
+        { loading ? (
+          <Spinner />
+        ) : (
+          <React.Fragment>
+            { Object.keys(data).map((standard, index) => (
+                <React.Fragment>
+                  { Object.keys(data[standard]).map((division, index) => (
+                    <AttendanceComponent
+                      standard={standard}
+                      division={division}
+                      list={data[standard][division]}
+                      submitAttendance={this.submitAttendance}
+                    />
+                  ))}
+                </React.Fragment>
+            ))}
+          </React.Fragment>
+        )}
       </div>
     );
   }
