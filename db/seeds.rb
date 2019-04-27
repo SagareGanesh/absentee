@@ -4,7 +4,8 @@ if language == 'English'
   school = School.find_or_create_by(
     name: 'Josh',
     school_type: 'primary',
-    contact_number: '9921998433'
+    contact_number: '9921998433',
+    language: 'en'
   )
 
   admin = school.users.find_or_create_by(
@@ -55,7 +56,8 @@ else
   school = School.find_or_create_by(
     name: 'जोश',
     school_type: 'प्राथमिक',
-    contact_number: '९९२१९९८४३३'
+    contact_number: '९९२१९९८४३३',
+    language: 'mr'
   )
 
   admin = school.users.find_or_create_by(
