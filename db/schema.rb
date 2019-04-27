@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2019_04_27_085339) do
     t.string "name"
     t.string "school_type"
     t.string "contact_number"
+    t.string "language"
   end
 
   create_table "students", force: :cascade do |t|

@@ -27,7 +27,6 @@ class InventoryService
       s.update(name: student_data['name'], academic_year: student_data['academic_year'], notification_nos: student_data['notification_nos'])
       s.valid? ? s.save : invalid_student_data << (student.to_h.values << s.errors.messages).flatten
     end
-    byebug
     invalid_student_data.length > 1 ? generate_error_csv(invalid_student_data) : nil
   end
 

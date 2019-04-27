@@ -1,3 +1,6 @@
+require "net/https"
+require "json"
+
 class AttendanceService
   attr_reader :params
 
@@ -37,8 +40,10 @@ class AttendanceService
     Attendance.includes(:student).where(date: Date.today).where.not(notified_at: nil)
       .find_each do |attendance|
       attendance.student.notification_nos.split(',').each do |mob_no|
-        puts "#{mob_no} => Your child #{student.name} is absent today."
-        attendance.update_columns(notified_at: DateTime.now)
+        msg = "तुमचे पाल्य #{student.name} आज शाळेत आले नाही"
+        service = MessageService.new(msg, mob_no, student)
+        service.send_sms
+        attendance.update_columns(notified_at: service.is_sent ? DateTime.now : nil)
       end
     end
   end
