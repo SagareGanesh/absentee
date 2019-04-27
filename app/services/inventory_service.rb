@@ -1,9 +1,10 @@
 require 'csv'
 
 class InventoryService
-  def initialize(file_path, inventory_type)
+  def initialize(file_path, inventory_type, current_school)
     @file_path = file_path
     @inventory_type = inventory_type
+    @current_school = current_school
   end
 
   def upload_data
@@ -22,7 +23,7 @@ class InventoryService
     students_data = CSV.parse(file, headers: true)
     invalid_student_data = [students_data.headers << 'error_messages']
     students_data.each do |student|
-      student_data = student.to_hash.merge(school_id: School.current_id)
+      student_data = student.to_hash.merge('school_id' => @current_school.id)
       s = Student.find_or_create_by(roll_number: students_data['roll_number'], class_name: students_data['class_name'], division: student_data['division'], school_id: student_data['school_id'])
       s.update(name: student_data['name'], academic_year: student_data['academic_year'], notification_nos: student_data['notification_nos'])
       s.valid? ? s.save : invalid_student_data << (student.to_h.values << s.errors.messages).flatten

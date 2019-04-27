@@ -6,7 +6,7 @@ class V1::StudentsController < V1::BaseController
   end
 
   def upload
-    InventoryService.new(params[:file].tempfile.path, 'student')
+    InventoryService.new(params[:file].tempfile.path, 'student', @current_school).upload_data
     render json: { message: 'File uploaded successfully' }, status: 200
   end
 
