@@ -32,6 +32,6 @@ class V1::StudentsController < V1::BaseController
   private
 
   def stuedent_params
-    params.require(:student).permit(:name, :roll_number, :class_name, :division, :academic_year, :notification_nos])
+    params.require(:student).permit(:name, :roll_number, :class_name, :division, :academic_year, :notification_nos)
   end
 end
