@@ -22,7 +22,16 @@ ActiveRecord::Schema.define(version: 2019_04_27_081309) do
     t.bigint "school_id"
     t.integer "student_id"
     t.datetime "notified_at"
+    t.integer "attendance_status_id"
     t.index ["school_id"], name: "index_attendance_on_school_id"
+  end
+
+  create_table "attendance_status", force: :cascade do |t|
+    t.string "date"
+    t.string "class_name"
+    t.string "division"
+    t.bigint "school_id"
+    t.index ["school_id"], name: "index_attendance_status_on_school_id"
   end
 
   create_table "schools", force: :cascade do |t|
@@ -56,6 +65,7 @@ ActiveRecord::Schema.define(version: 2019_04_27_081309) do
   end
 
   add_foreign_key "attendance", "schools"
+  add_foreign_key "attendance_status", "schools"
   add_foreign_key "students", "schools"
   add_foreign_key "users", "schools"
 end
