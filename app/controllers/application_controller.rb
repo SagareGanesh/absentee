@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-  around_filter :scope_current_school, if: :current_school
+  before_filter :scope_current_school, if: :current_school
 
   private
 
