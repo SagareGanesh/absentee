@@ -1,5 +1,5 @@
 class V1::StudentsController < V1::BaseController
-  before_action :load_student, except: [:update, :destroy, :show]
+  before_action :load_student, only: [:update, :destroy, :show]
 
   def index
     school = School.first
@@ -21,7 +21,7 @@ class V1::StudentsController < V1::BaseController
   end
 
   def update
-    if @student.update_atttibutes(student_params)
+    if @student.update_attributes(student_params)
       render json: {message: 'updated successfully'}, status: :ok
     else
       render json: {message: @student.errors.message}, status: :unprocessable_entity
@@ -32,7 +32,7 @@ class V1::StudentsController < V1::BaseController
   end
 
   def show
-    render json: @student.as_json(except: [:student_id]), status: :ok
+    render json: @student.as_json(except: [:school_id]), status: :ok
   end
 
   private
