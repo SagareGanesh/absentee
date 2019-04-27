@@ -3,6 +3,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import { Container } from 'reactstrap';
 import { connect } from 'react-redux';
 import { setLanguage } from '../../actions/language';
+import { ToastContainer, toast } from 'react-toastify';
 
 import {
   AppAside,
@@ -41,6 +42,7 @@ class DefaultLayout extends Component {
   render() {
     return (
       <div className="app">
+        <ToastContainer />
         <AppHeader fixed>
           <Suspense  fallback={this.loading()}>
             <DefaultHeader onLogout={e=>this.signOut(e)}/>

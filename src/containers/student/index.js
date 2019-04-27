@@ -2,25 +2,29 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import StudentComponent from '../../components/student'
-import { fetchStudents } from '../../actions/student';
+import { fetchStudents, upload } from '../../actions/student';
 
 class Student extends Component {
   constructor(props){
     super(props);
     this.state = {
+      isUploadModalOpen: false,
       selectedClass: null,
       search: '',
       page: 1,
       size: 10,
-      filters: {
-        class: null,
-        division: null,
-      }
+      file: null
     }
   }
 
   componentDidMount(){
-    this.fetchStudents(this.state.page, this.state.size);
+    this.fetchStudents();
+  }
+
+  componentWillReceiveProps(nextProps){
+    if(nextProps.result.uploadSucess != this.props.result.uploadSucess){
+      this.fetchStudents()
+    }
   }
 
   fetchStudents = () => {
@@ -28,9 +32,10 @@ class Student extends Component {
   }
 
   handleOnChange = (e) => {
-    let filters = this.state.filters;
-    filters[e.target.name] = e.target.value;
-    this.setState({filters: filters})
+    this.setState({
+      ...this.state,
+      [e.target.name]: e.target.value
+    })
   }
 
   handlePagination = (page) => {
@@ -50,10 +55,7 @@ class Student extends Component {
       ...this.state,
       page: 1,
       search: '',
-      filters: {
-        class: '',
-        division: '',
-      }
+      selectedClass: null
     }, () => this.fetchStudents())
   }
 
@@ -64,6 +66,29 @@ class Student extends Component {
     }, () => this.fetchStudents())
   }
 
+  openUpload = () => {
+    this.setState({...this.state, isUploadModalOpen: true})
+  }
+
+  closeUpload = () => {
+    this.setState({...this.state, isUploadModalOpen: false, file: null})
+  }
+
+  handleFileSelect = (event) => {
+    event.persist();
+    this.setState({
+      ...this.state,
+      file: event.target.files[0],
+    })
+  }
+
+  upload = () => {
+    const formData = new FormData();
+    formData.append('file', this.state.file,this.state.file.name);
+    this.props.upload(formData)
+    this.closeUpload()
+  }
+
   render() {
     const { result } = this.props
     return (
@@ -71,12 +96,22 @@ class Student extends Component {
         filters={ this.state.filters }
         studentData={ result.data.students }
         sizePerPage={ this.state.size }
-        totalSize={ result.data.total }
+        page={this.state.page}
+        totalSize={ result.data.page_count }
         classNames={ result.data.class_names }
         handlePagination={ this.handlePagination }
-        onSearch={this.onSearchClick}
+        onSearch={this.onSearch}
+        onSearchClick={ this.onSearchClick }
         search={this.state.search}
-        selectedClass={ this.state.selectedClass }/>
+        selectedClass={ this.state.selectedClass }
+        handleOnChange={ this.handleOnChange }
+        reset={ this.resetFilter }
+        openUpload={ this.openUpload }
+        closeUpload={ this.closeUpload }
+        isUploadModalOpen={ this.state.isUploadModalOpen }
+        handleFileSelect={ this.handleFileSelect }
+        file={ this.state.file }
+        upload={ this.upload }/>
     );
   }
 }
@@ -92,7 +127,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchStudents: (page, size) => dispatch(fetchStudents(page, size)),
+  fetchStudents: (page, size, search, class_name) => dispatch(fetchStudents(page, size, search, class_name)),
+  upload: (formData) => dispatch(upload(formData)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Student);

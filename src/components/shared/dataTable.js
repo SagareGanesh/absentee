@@ -44,7 +44,7 @@ const DataTable = (props) => {
   const pagination = (
     <nav>
       <CustomPagination
-        totalPages={Math.ceil(props.totalSize / props.sizePerPage)}
+        totalPages={props.totalSize}
         currentPage={props.page}
         handlePagination={props.handlePagination}
       />

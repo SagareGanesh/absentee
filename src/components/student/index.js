@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 // import Spinner from '../shared/spinner.js';
 import { Button, Card, CardHeader, CardBody, Form, FormGroup, Input, Label,
-         FormFeedback, } from 'reactstrap';
+         FormFeedback, Row, Col} from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 import DataTable from '../shared/dataTable';
-
+import UploadModal from './uploadFile'
 import styles from './styles';
 
 const linkFormatter = (cell, row, methods) => (
@@ -52,14 +52,31 @@ class StudentComponent extends Component {
       <div className="animated fadeIn mt-3">
         <Card>
           <CardHeader>
-            <i className="fa fa-align-justify"></i>Students
-            <div className="card-header-actions">
-              <Link to="/students/new" style={{ textDecoration: 'none' }}>
-                <Button block color="primary" size="sm">
-                  <b>+ New</b>
-                </Button>
-              </Link>
-            </div>
+            <Row>
+              <Col md={6}>
+                <i className="fa fa-align-justify"></i>Students
+              </Col>
+              <Col md={6} align="right">
+                <Row>
+                  <Col md={9}></Col>
+                  <Col md={2}>
+                    <div className="card-header-actions">
+                      <Link to="/students/new" style={{ textDecoration: 'none' }}>
+                        <Button block color="success" size="sm">
+                          <b>+ New</b>
+                        </Button>
+                      </Link>
+                    </div>
+                  </Col>
+                  <Col md={1}>
+                    <div className="card-header-actions">
+                      <Button onClick={ this.props.openUpload } block color="warning" size="sm" className="cui-cloud-upload mr-1">
+                      </Button>
+                    </div>
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
           </CardHeader>
           <CardBody>
           <div>
@@ -80,7 +97,8 @@ class StudentComponent extends Component {
                 }
               </Input>
             </FormGroup>
-            <Button type="button" onClick={ this.props.search } color="primary" size="sm" className="mr-1">Search</Button>
+            <Button type="button" onClick={ this.props.onSearchClick } color="primary" size="sm" className="mr-1">Search</Button>
+            <Button type="button" onClick={ this.props.reset } size="sm" className="mr-1">Reset</Button>
           </Form>
         </div>
             <div>
@@ -94,6 +112,13 @@ class StudentComponent extends Component {
                          page={props.page}
               />
             </div>
+            <UploadModal
+              isUploadModalOpen={props.isUploadModalOpen}
+              closeUpload={ props.closeUpload }
+              upload={props.upload}
+              file={props.file}
+              handleFileSelect={ props.handleFileSelect }
+            />
           </CardBody>
         </Card>
       </div>
