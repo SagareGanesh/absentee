@@ -29,7 +29,7 @@ class School < ApplicationRecord
   end
 
   def search_students(params)
-    class_names = self.students.pluck(:class_name).uniq
+    class_names = self.students.order(:class_name).pluck(:class_name).uniq
     filter = "name ilike (?) OR roll_number like (?)"
     students = self.students.where(filter, "%#{params[:q]}%", "%#{params[:q]}%") if params[:q].present?
     students = (students || self.students).where(class_name: params[:class_name]) if params[:class_name].present?
