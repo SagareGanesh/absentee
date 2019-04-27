@@ -6,4 +6,16 @@ class V1::SchoolsController < V1::BaseController
       divisions:   @current_school.students.pluck(:division).uniq
     }, status: 200
   end
+
+  def update
+    school = School.find params[:id]
+    school.update_attributes(student_params)
+    render json: {message: 'language updated successfully'}, status: :ok 
+  end
+
+  private
+
+  def student_params
+    params.require(:school).permit(:language)
+  end
 end
