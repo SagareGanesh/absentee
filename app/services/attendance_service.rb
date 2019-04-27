@@ -34,11 +34,8 @@ class AttendanceService
       .find_each do |attendance|
       attendance.student.notification_nos.split(',').each do |mob_no|
         msg = "तुमचे पाल्य #{student.name} आज शाळेत आले नाही"
-        url = URI.parse('http://api.textlocal.in/send/?')
-
-        response = Net::HTTP.post_form(url, apiKey: TEXT_LOCAL_API_KEY, sender: 'TXTLCL', message: msg.squish, numbers: student.notification_nos, unicode: true)
-        status = JSON.parse(response.body)['status']
-        status.eql?('success') ? attendance.update_attibutes(notified_at: DateTime.now) : 'message not sent'
+        service = MessageService.new(msg, mob_no, student)
+        service.send_sms
       end
     end
   end
