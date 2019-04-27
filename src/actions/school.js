@@ -17,7 +17,8 @@ export const getSchoolDetails = () => {
       method: 'GET',
       headers: {
         'X-API-KEY': 'sdsadsad',
-        'accept': 'application/vnd.parenotify.com; version=1'
+        'accept': 'application/vnd.parenotify.com; version=1',
+        'Content-Type': 'application/json'
       },
     })
     .then((response) => {

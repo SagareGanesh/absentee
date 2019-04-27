@@ -94,10 +94,8 @@ class DefaultLayout extends Component {
           </AppAside>
         </div>
         <AppFooter fixed>
-          <Suspense fallback={this.loading()}>
-            <DefaultFooter locale={this.props.locale}
-                           setLanguage={this.setLanguage}/>
-          </Suspense>
+          <DefaultFooter locale={this.props.locale}
+                          setLanguage={this.setLanguage}/>
         </AppFooter>
       </div>
     );
@@ -111,7 +109,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   setLanguage: (locale) => dispatch(setLanguage(locale)),
-  getSchoolDetails: () => dispatch(getSchoolDetails()),
+  getSchoolDetails: () => dispatch(getSchoolDetails())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(DefaultLayout);
