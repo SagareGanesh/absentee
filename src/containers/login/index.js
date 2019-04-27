@@ -12,7 +12,7 @@ import Footer from '../footer';
 
 class Login extends Component {
   login = () => {
-    this.props.history.push('/dashboard');
+    this.props.history.push('/students');
   }
 
   render() {

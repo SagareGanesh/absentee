@@ -31,7 +31,9 @@ class DefaultHeader extends Component {
           minimized={{ src: logo, width: 30, height: 30, alt: 'CoreUI Logo' }}
         />
         <AppSidebarToggler className="d-md-down-none" display="lg" />
-
+        <div className="school-name">
+          {this.props.school.name}
+        </div>
         <Nav className="ml-auto" navbar>
           <AppHeaderDropdown direction="down">
             <DropdownToggle nav>

@@ -22,7 +22,7 @@ const Student = Loadable({
 });
 
 const routes = [
-  { path: '/', exact: true, name: 'Dashboard', component: Dashboard, details: 'Dashboard' },
+  { path: '/', exact: true, name: 'Student', component: Student, details: 'Student' },
   { path: '/attendance', exact: true, name: 'Attendance', component: Attendance, details: 'Attendance' },
   { path: '/students', exact: true, name: 'Student', component: Student, details: 'Student' }
 ]

@@ -3,6 +3,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import { Container } from 'reactstrap';
 import { connect } from 'react-redux';
 import { setLanguage } from '../../actions/language';
+import { getSchoolDetails } from '../../actions/school';
 import { ToastContainer, toast } from 'react-toastify';
 
 import {
@@ -28,6 +29,10 @@ const DefaultHeader = React.lazy(() => import('./DefaultHeader'));
 
 class DefaultLayout extends Component {
 
+  componentDidMount(){
+    this.props.getSchoolDetails()
+  }
+
   loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
 
   signOut(e) {
@@ -45,7 +50,7 @@ class DefaultLayout extends Component {
         <ToastContainer />
         <AppHeader fixed>
           <Suspense  fallback={this.loading()}>
-            <DefaultHeader onLogout={e=>this.signOut(e)}/>
+            <DefaultHeader onLogout={e=>this.signOut(e)} school={this.props.school}/>
           </Suspense>
         </AppHeader>
         <div className="app-body">
@@ -98,10 +103,12 @@ class DefaultLayout extends Component {
 
 const mapStateToProps = state => ({
   locale: state.languageReducer.locale,
+  school: state.schoolReducer.school
 })
 
 const mapDispatchToProps = dispatch => ({
   setLanguage: (locale) => dispatch(setLanguage(locale)),
+  getSchoolDetails: () => dispatch(getSchoolDetails()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(DefaultLayout);
