@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_27_054040) do
+ActiveRecord::Schema.define(version: 2019_04_27_081309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,13 +22,23 @@ ActiveRecord::Schema.define(version: 2019_04_27_054040) do
     t.bigint "school_id"
     t.integer "student_id"
     t.datetime "notified_at"
+    t.integer "attendance_status_id"
     t.index ["school_id"], name: "index_attendance_on_school_id"
+  end
+
+  create_table "attendance_status", force: :cascade do |t|
+    t.string "date"
+    t.string "class_name"
+    t.string "division"
+    t.bigint "school_id"
+    t.index ["school_id"], name: "index_attendance_status_on_school_id"
   end
 
   create_table "schools", force: :cascade do |t|
     t.string "name"
     t.string "school_type"
     t.string "contact_number"
+    t.string "language"
   end
 
   create_table "students", force: :cascade do |t|
@@ -55,6 +65,7 @@ ActiveRecord::Schema.define(version: 2019_04_27_054040) do
   end
 
   add_foreign_key "attendance", "schools"
+  add_foreign_key "attendance_status", "schools"
   add_foreign_key "students", "schools"
   add_foreign_key "users", "schools"
 end
