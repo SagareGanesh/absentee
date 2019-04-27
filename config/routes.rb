@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :schools do
       collection do
         get :details
+        put :set_language
       end
     end
 

@@ -7,17 +7,11 @@ class V1::SchoolsController < V1::BaseController
     }, status: 200
   end
 
-  def update
-    school = School.find params[:id]
-    school.update_attributes(school_params)
+  def set_language
+    @current_school.update_attributes(language: params[:locale])
     render json: {message: 'language updated successfully'}, status: :ok 
   end
-
-  private
-
-  def school_params
-    params.require(:school).permit(:language)
-  end
+  
   ## update all student class to next level
   # params
   # {
