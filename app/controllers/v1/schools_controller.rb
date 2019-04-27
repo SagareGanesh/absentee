@@ -6,4 +6,16 @@ class V1::SchoolsController < V1::BaseController
       divisions:   @current_school.students.pluck(:division).uniq
     }, status: 200
   end
+
+  ## update all student class to next level
+  # params
+  # {
+  #   school_id: 1,
+  # }
+  #
+  def elevation
+    school = School.find params[:school_id]
+
+    school.elevation
+  end
 end

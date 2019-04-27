@@ -58,6 +58,26 @@ class School < ApplicationRecord
     class_division_info
   end
 
+  def elevation
+    current_acd_year = Date.today.year
+    next_acd_year    = Date.today.year + 1
+
+    class_names = class_wise_division.keys.sort
+    students
+      .where(class_name: class_names.last)
+      .update_all(active: false)
+
+    class_names[0..-2].each_with_index do |class_name, index|
+      students.where(
+        class_name: class_name,
+        academic_year: current_acd_year
+      ).update_all(
+        class_name: class_names[index + 1],
+        academic_year: next_acd_year
+      )
+    end
+  end
+
   def self.current_id=(id)
     Thread.current[:school_id] = id
   end
