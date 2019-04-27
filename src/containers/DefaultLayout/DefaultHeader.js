@@ -14,6 +14,10 @@ const propTypes = {
 const defaultProps = {};
 
 class DefaultHeader extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
 
     // eslint-disable-next-line
@@ -31,11 +35,15 @@ class DefaultHeader extends Component {
         <Nav className="ml-auto" navbar>
           <AppHeaderDropdown direction="down">
             <DropdownToggle nav>
-              <img src={'../../assets/img/avatars/6.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+            <div className='avatar-circle'>
+              <div className='initials avatar-text'>U</div>
+            </div>
             </DropdownToggle>
             <DropdownMenu right style={{ right: 'auto' }}>
               <DropdownItem header tag="div" className="text-center"><strong>Settings</strong></DropdownItem>
-              <DropdownItem onClick={e => this.props.onLogout(e)}><i className="fa fa-lock"></i> Logout</DropdownItem>
+              <Link to='/' style={{ textDecoration: 'none' }}>
+                <DropdownItem ><i className="fa fa-lock"></i> Logout</DropdownItem>
+              </Link>
             </DropdownMenu>
           </AppHeaderDropdown>
         </Nav>
