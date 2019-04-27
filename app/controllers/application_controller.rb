@@ -4,7 +4,7 @@ class ApplicationController < ActionController::API
   private
 
   def current_school
-    @current_school ||= School.find_by_short_name!('ryan')
+    @current_school ||= School.first
   end
 
   def scope_current_school
