@@ -4,6 +4,7 @@
   "App.component.message": "App",
   "Attendance.component.message": "Attendance",
   "AttendanceComponent.component.message": "AttendanceComponent",
+  "Cancel.component.message": "File",
   "CancelButtonText.component.message": "Cancel",
   "Class.component.message": "Class",
   "ConfirmButtonText.component.message": "Submit",
@@ -14,6 +15,7 @@
   "DefaultFooterLanguage.component.message": "Language:",
   "Devision.component.message": "Division",
   "Division.component.message": "Division",
+  "File.component.message": "File",
   "Filters.component.message": "Filters",
   "First.component.message": "First",
   "Footer.component.message": "Josh Software Pvt. Ltd",
@@ -34,5 +36,7 @@
   "Student.component.message": "Students",
   "StudentNewComponent.component.message": "StudentNewComponent",
   "Students.component.message": "Students",
-  "SubmitAttendance.component.message": "Submit"
+  "SubmitAttendance.component.message": "Submit",
+  "Upload.component.message": "File",
+  "UploadHeader.component.message": "Upload Student Data"
 }

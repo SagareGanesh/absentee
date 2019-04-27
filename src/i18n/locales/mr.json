@@ -3,7 +3,8 @@
   "AddNew.component.message": "नवीन जोडा",
   "App.component.message": "अॅप",
   "Attendance.component.message": "उपस्थिती",
-  "Attendance.component.message": "उपस्थिती",
+  "AttendanceComponent.component.message": "Attendance",
+  "Cancel.component.message": "File",
   "CancelButtonText.component.message": "रद्द करा",
   "Class.component.message": "वर्ग",
   "ConfirmButtonText.component.message": "सबमिट करा",
@@ -14,6 +15,7 @@
   "DefaultFooterLanguage.component.message": "भाषा",
   "Devision.component.message": "विभागणी",
   "Division.component.message": "विभागणी",
+  "File.component.message": "File",
   "Filters.component.message": "फिल्टर",
   "First.component.message": "प्रथम",
   "Footer.component.message": "जोश सॉफ्टवेयर प्रा. लि",
@@ -34,5 +36,9 @@
   "Student.component.message": "विद्यार्थी",
   "StudentNewComponent.component.message": "विद्यार्थी",
   "Students.component.message": "विद्यार्थी",
-  "SubmitAttendance.component.message": "सबमिट करा"
+  "SubmitAttendance.component.message": "सबमिट करा",
+  "Upload.component.message": "फाइल",
+  "UploadHeader.component.message": "विद्यार्थी डेटा अपलोड करा",
+  "Upload.component.message": "अपलोड करा",
+  "Cancel.component.message": "रद्द करा"
 }

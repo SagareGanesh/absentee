@@ -38,6 +38,27 @@ const fetchUploadFail = (error) => {
   }
 }
 
+const createStudentInitiate = () => {
+  return {
+    type: 'CREATE_STUDENT'
+  }
+}
+
+const createStudentSuccess = (data) => {
+  return {
+    type: 'CREATE_STUDENT_SUCCESS',
+    payload: data,
+  }
+}
+
+const createStudentFail = (error) => {
+  return {
+    type: 'CREATE_STUDENT_FAIL',
+    payload: error,
+  }
+}
+
+
 export const fetchStudents = (page=1, size=10, search=null, class_name=null) => {
   return (dispatch) => {
     dispatch(fetchStudentInitiate());
@@ -87,26 +108,6 @@ export const upload = (data) => {
       dispatch(fetchUploadFail(error));
       errorNotify("Failed to upload student details")
     })
-  }
-}
-
-const createStudentInitiate = () => {
-  return {
-    type: 'CREATE_STUDENT'
-  }
-}
-
-const createStudentSuccess = (data) => {
-  return {
-    type: 'CREATE_STUDENT_SUCCESS',
-    payload: data,
-  }
-}
-
-const createStudentFail = (error) => {
-  return {
-    type: 'CREATE_STUDENT_FAIL',
-    payload: error,
   }
 }
 

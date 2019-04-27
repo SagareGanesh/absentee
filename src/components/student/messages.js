@@ -56,10 +56,10 @@ export default defineMessages({
   },
   Upload:{
     id: 'Upload.component.message',
-    defaultMessage: "File"
+    defaultMessage: "Upload"
   },
   Cancel:{
     id: 'Cancel.component.message',
-    defaultMessage: "File"
+    defaultMessage: "Cancel"
   }
 });

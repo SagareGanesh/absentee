@@ -1,7 +1,7 @@
 [
   {
     "id": "AttendanceComponent.component.message",
-    "defaultMessage": "AttendanceComponent",
+    "defaultMessage": "Attendance",
     "filepath": "src/components/attendanceComponent/messages.js"
   },
   {
@@ -142,6 +142,26 @@
   {
     "id": "Action.component.message",
     "defaultMessage": "Action",
+    "filepath": "src/components/student/messages.js"
+  },
+  {
+    "id": "UploadHeader.component.message",
+    "defaultMessage": "Upload Student Data",
+    "filepath": "src/components/student/messages.js"
+  },
+  {
+    "id": "File.component.message",
+    "defaultMessage": "File",
+    "filepath": "src/components/student/messages.js"
+  },
+  {
+    "id": "Upload.component.message",
+    "defaultMessage": "Upload",
+    "filepath": "src/components/student/messages.js"
+  },
+  {
+    "id": "Cancel.component.message",
+    "defaultMessage": "Cancel",
     "filepath": "src/components/student/messages.js"
   },
   {
