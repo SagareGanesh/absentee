@@ -10,4 +10,16 @@ export default defineMessages({
     id: 'AttendanceComponent.component.message',
     defaultMessage: 'AttendanceComponent',
   },
+  SubmitAttendance: {
+    id: 'SubmitAttendance.component.message',
+    defaultMessage: 'Submit Attendance',
+  },
+  Class: {
+    id: 'Class.component.message',
+    defaultMessage: 'Class',
+  },
+  Division: {
+    id: 'Devision.component.message',
+    defaultMessage: 'Division',
+  }
 });

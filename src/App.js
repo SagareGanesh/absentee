@@ -31,14 +31,13 @@ class App extends Component {
 
   render() {
     const { locale } = this.props;
-
     return (
       <HashRouter>
         <IntlProvider locale={locale} messages={localeMessages[locale]}>
           <React.Suspense fallback={loading()}>
             <Switch>
               <Route exact={true} path="/" name="Login" component={ Login } />
-              <Route path="*" name="Home" render={props => <DefaultLayout {...props}/>} />
+              <Route path="*" name="Home" render={props => <DefaultLayout {...props} />} />
             </Switch>
           </React.Suspense>
         </IntlProvider>
@@ -50,9 +49,13 @@ App.propTypes = {
   locale : PropTypes.string,
 }
 
-const mapStateToProps = state => ({
- locale: state.languageReducer.locale,
-})
+const mapStateToProps = state => {
+  console.log(state);
+  return {
+    locale: state.languageReducer.locale,
+    location: state.location,
+  }
+}
 
 const mapDispatchToProps = dispatch => ({
 })
