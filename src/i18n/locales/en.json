@@ -4,7 +4,7 @@
   "App.component.message": "App",
   "Attendance.component.message": "Attendance",
   "AttendanceComponent.component.message": "AttendanceComponent",
-  "Cancel.component.message": "File",
+  "Cancel.component.message": "Cancel",
   "CancelButtonText.component.message": "Cancel",
   "Class.component.message": "Class",
   "ConfirmButtonText.component.message": "Submit",
@@ -37,6 +37,6 @@
   "StudentNewComponent.component.message": "StudentNewComponent",
   "Students.component.message": "Students",
   "SubmitAttendance.component.message": "Submit",
-  "Upload.component.message": "File",
+  "Upload.component.message": "Upload",
   "UploadHeader.component.message": "Upload Student Data"
 }
