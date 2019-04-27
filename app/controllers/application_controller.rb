@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-  before_filter :scope_current_school, if: :current_school
+  before_action :set_current_school, if: :current_school
 
   private
 
@@ -7,9 +7,8 @@ class ApplicationController < ActionController::API
     @current_school ||= School.first
   end
 
-  def scope_current_school
+  def set_current_school
     School.current_id =  current_school.id
-    yield
   ensure
     School.current_id = nil
   end
