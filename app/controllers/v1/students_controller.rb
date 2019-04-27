@@ -29,6 +29,12 @@ class V1::StudentsController < V1::BaseController
   end
 
   def destroy
+    @student.destroy
+    if @student.destroyed?
+      render json: {message: 'deleted successfully'}, status: :ok
+    else
+      render json: {message: @student.errors.message}, status: :unprocessable_entity
+    end
   end
 
   def show

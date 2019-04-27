@@ -81,4 +81,14 @@ resource "V1" do
       expect(status).to eq(200)
     end
   end
+
+  delete "/students/:id" do
+    parameter :id, "Student uniq id"
+    let!(:school)  {FactoryBot.create(:school)}
+    let(:id)   {FactoryBot.create(:student, school_id: school.id).id}
+
+    example_request "Student deletion" do
+      expect(status).to eq(200)
+    end
+  end
 end
