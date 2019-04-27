@@ -54,4 +54,41 @@ resource "V1" do
       expect(status).to eq(200)
     end
   end
+
+  get "/students/:id" do
+    parameter :id, "Student uniq id"
+    let!(:school)  {FactoryBot.create(:school)}
+    let(:id)   {FactoryBot.create(:student, school_id: school.id).id}
+
+    example_request "Get student data" do
+      expect(status).to eq(200)
+    end
+  end
+
+  patch "/students/:id" do
+    parameter :id, "Student uniq id"
+    parameter :name,  "Student name"
+    parameter :roll_number, "Student Roll number"
+    let!(:school)  {FactoryBot.create(:school)}
+    let(:id)   {FactoryBot.create(:student, school_id: school.id).id}
+
+    let(:name)          {'pramod shinde'}
+    let(:roll_number)   {'23'}
+
+    let(:raw_post) { params.to_json }
+
+    example_request "Update student" do
+      expect(status).to eq(200)
+    end
+  end
+
+  delete "/students/:id" do
+    parameter :id, "Student uniq id"
+    let!(:school)  {FactoryBot.create(:school)}
+    let(:id)   {FactoryBot.create(:student, school_id: school.id).id}
+
+    example_request "Student deletion" do
+      expect(status).to eq(200)
+    end
+  end
 end
