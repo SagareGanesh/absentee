@@ -1,4 +1,5 @@
 class V1::StudentsController < V1::BaseController
+  before_action :load_student, except: [:update, :destroy, :show]
 
   def index
     school = School.first
@@ -20,17 +21,27 @@ class V1::StudentsController < V1::BaseController
   end
 
   def update
+    if @student.update_atttibutes(student_params)
+      render json: {message: 'updated successfully'}, status: :ok
+    else
+      render json: {message: @student.errors.message}, status: :unprocessable_entity
+    end
   end
 
   def destroy
   end
 
-  def edit
+  def show
+    render json: @student.as_json(except: [:student_id]), status: :ok
   end
 
   private
 
   def student_params
     params.require(:student).permit(:name, :roll_number, :class_name, :division, :academic_year, :notification_nos)
+  end
+
+  def load_student
+    @student = Student.find params[:id]
   end
 end
