@@ -13,18 +13,18 @@ class School < ApplicationRecord
 
   def grouped_stundents
     students_list = {}
-    self.students.select(:id, :name, :roll_number, :class_name, :division, :school_id)
+    data = self.students
+      .select(:id, :name, :roll_number, :class_name, :division, :school_id)
       .select('attendance.id as attendace_id')
       .left_joins(:attendance)
       .order(:class_name, :division, :roll_number)
       .uniq
-      .each_slice(100) do |batch|
-        class_students = batch.group_by{|b| b.class_name }
-        class_students.each do |k, v|
-          class_students[k] = v.group_by{|h| h.division }
-        end
-      students_list.merge!(class_students)
+
+    class_students = data.group_by{|b| b.class_name }
+    class_students.each do |k, v|
+      class_students[k] = v.group_by{|h| h.division }
     end
+    students_list.merge!(class_students)
     students_list
   end
 
