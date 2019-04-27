@@ -16,11 +16,10 @@ class V1::SchoolsController < V1::BaseController
   # params
   # {
   #   school_id: 1,
-  #   next_act_year: '2021'
   # }
   #
   def elevation
     school = School.find params[:school_id]
-    school.class_wise_division
+    school.elevation
   end
 end

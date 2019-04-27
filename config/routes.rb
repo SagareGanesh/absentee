@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :students do
       collection do
         post :upload
+        post :elevation
       end
     end
 
