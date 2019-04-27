@@ -51,7 +51,7 @@ if language == 'English'
   end
 
 else
-
+  ActiveRecord::Base.establish_connection(:replica_mr)
   school = School.find_or_create_by(
     name: 'जोश',
     school_type: 'प्राथमिक',
