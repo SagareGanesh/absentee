@@ -1,7 +1,6 @@
 class V1::StudentsController < V1::BaseController
 
   def index
-    # school = School.first
     render json: @current_school.search_students(params), status: 200
   end
 
