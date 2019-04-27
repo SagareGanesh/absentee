@@ -1,3 +1,6 @@
+require "net/https"
+require "json"
+
 class AttendanceService
   attr_reader :params
 
@@ -30,8 +33,12 @@ class AttendanceService
     Attendance.includes(:student).where(date: Date.today).where.not(notified_at: nil)
       .find_each do |attendance|
       attendance.student.notification_nos.split(',').each do |mob_no|
-        puts "#{mob_no} => Your child #{student.name} is absent today."
-        attendance.update_column(notified_at: DateTime.now)
+        msg = "तुमचे पाल्य #{student.name} आज शाळेत आले नाही"
+        url = URI.parse('http://api.textlocal.in/send/?')
+
+        response = Net::HTTP.post_form(url, apiKey: TEXT_LOCAL_API_KEY, sender: 'TXTLCL', message: msg.squish, numbers: student.notification_nos, unicode: true)
+        status = JSON.parse(response.body)['status']
+        status.eql?('success') ? attendance.update_attibutes(notified_at: DateTime.now) : 'message not sent'
       end
     end
   end
