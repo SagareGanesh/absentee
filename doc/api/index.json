@@ -5,6 +5,13 @@
       "explanation": null,
       "examples": [
         {
+          "description": "Create Student",
+          "link": "v1/create_student.json",
+          "groups": "all",
+          "route": "/students",
+          "method": "post"
+        },
+        {
           "description": "List of attendance",
           "link": "v1/list_of_attendance.json",
           "groups": "all",
