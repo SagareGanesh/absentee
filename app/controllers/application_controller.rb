@@ -5,7 +5,8 @@ class ApplicationController < ActionController::API
 
   def set_current_school
     @current_school ||= School.first
-    env_name = @current_school.language == 'mr' ? :replica_mr : :development
-    ActiveRecord::Base.establish_connection(:env_name)
+    if @current_school.language == 'mr'
+      ActiveRecord::Base.establish_connection(:replica_mr)
+    end
   end
 end

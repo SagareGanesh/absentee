@@ -37,8 +37,9 @@ class AttendanceService
   end
 
   def send_notifications
-    Attendance.includes(:student).where(date: Date.today).where.not(notified_at: nil)
+    Attendance.includes(:student).where(date: Date.today).where(notified_at: nil)
       .find_each do |attendance|
+      student = attendance.student
       attendance.student.notification_nos.split(',').each do |mob_no|
         msg = student.school.language == 'en' ? "Your child #{student.name} is absent today." : "तुमचे पाल्य #{student.name} आज शाळेत आले नाही"
         service = MessageService.new(msg, mob_no, student)

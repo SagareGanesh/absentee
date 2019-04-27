@@ -1,8 +1,8 @@
-language = 'English'
+language = ''
 
 if language == 'English'
   school = School.find_or_create_by(
-    name: 'Josh',
+    name: 'Shri Chhatrapati Shivaji High School, Pune',
     school_type: 'primary',
     contact_number: '9921998433',
     language: 'en'
@@ -54,7 +54,7 @@ if language == 'English'
 else
   ActiveRecord::Base.establish_connection(:replica_mr)
   school = School.find_or_create_by(
-    name: 'जोश',
+    name: 'श्री छत्रपती शिवाजी हायस्कूल, पुणे',
     school_type: 'प्राथमिक',
     contact_number: '९९२१९९८४३३',
     language: 'mr'
