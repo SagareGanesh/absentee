@@ -14,4 +14,19 @@ resource "V1" do
       expect(status).to eq(200)
     end
   end
+
+  get "/students" do
+    parameter :offset, "Page offset"
+    parameter :size,   "Page size", default: 10
+
+    let(:offset) { 0  }
+    let(:size)   { 10 }
+
+    let!(:school) { FactoryBot.create(:school) }
+    let!(:students) { create_list(:student, 10, school: school) }
+
+    example_request "List of students" do
+      expect(status).to eq(200)
+    end
+  end
 end

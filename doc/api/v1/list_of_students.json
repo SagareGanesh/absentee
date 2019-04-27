@@ -1,0 +1,55 @@
+{
+  "resource": "V1",
+  "resource_explanation": null,
+  "http_method": "GET",
+  "route": "/students",
+  "description": "List of students",
+  "explanation": null,
+  "parameters": [
+    {
+      "name": "offset",
+      "description": "Page offset"
+    },
+    {
+      "default": 10,
+      "name": "size",
+      "description": "Page size"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/students?offset=0&size=10",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.parenotify.com; version=1",
+        "Content-Type": "application/json",
+        "X-Api-Key": "94b2fff3e7fd9b9c391a2306",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+        "offset": "0",
+        "size": "10"
+      },
+      "request_content_type": "application/json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"total\": 10,\n  \"students\": [\n    {\n      \"id\": 21,\n      \"name\": \"Derick Kshlerin\",\n      \"roll_number\": \"075\",\n      \"class_name\": \"9\",\n      \"division\": \"T\",\n      \"academic_year\": \"2019\",\n      \"notification_nos\": \"0156251429\",\n      \"school_id\": 29\n    },\n    {\n      \"id\": 22,\n      \"name\": \"Barney Vandervort\",\n      \"roll_number\": \"082\",\n      \"class_name\": \"7\",\n      \"division\": \"D\",\n      \"academic_year\": \"2019\",\n      \"notification_nos\": \"0881840522\",\n      \"school_id\": 29\n    },\n    {\n      \"id\": 23,\n      \"name\": \"Ms. Nestor Ankunding\",\n      \"roll_number\": \"056\",\n      \"class_name\": \"1\",\n      \"division\": \"J\",\n      \"academic_year\": \"2019\",\n      \"notification_nos\": \"0771008437\",\n      \"school_id\": 29\n    },\n    {\n      \"id\": 24,\n      \"name\": \"Rudolph Yundt\",\n      \"roll_number\": \"095\",\n      \"class_name\": \"8\",\n      \"division\": \"D\",\n      \"academic_year\": \"2019\",\n      \"notification_nos\": \"0514046546\",\n      \"school_id\": 29\n    },\n    {\n      \"id\": 25,\n      \"name\": \"Cassondra Marks\",\n      \"roll_number\": \"003\",\n      \"class_name\": \"8\",\n      \"division\": \"H\",\n      \"academic_year\": \"2019\",\n      \"notification_nos\": \"0516844619\",\n      \"school_id\": 29\n    },\n    {\n      \"id\": 26,\n      \"name\": \"Thomas Macejkovic\",\n      \"roll_number\": \"075\",\n      \"class_name\": \"0\",\n      \"division\": \"M\",\n      \"academic_year\": \"2019\",\n      \"notification_nos\": \"0055497056\",\n      \"school_id\": 29\n    },\n    {\n      \"id\": 27,\n      \"name\": \"Dr. Rutha Raynor\",\n      \"roll_number\": \"012\",\n      \"class_name\": \"5\",\n      \"division\": \"E\",\n      \"academic_year\": \"2019\",\n      \"notification_nos\": \"0022135543\",\n      \"school_id\": 29\n    },\n    {\n      \"id\": 28,\n      \"name\": \"Earline Altenwerth III\",\n      \"roll_number\": \"049\",\n      \"class_name\": \"3\",\n      \"division\": \"U\",\n      \"academic_year\": \"2019\",\n      \"notification_nos\": \"0264456688\",\n      \"school_id\": 29\n    },\n    {\n      \"id\": 29,\n      \"name\": \"Jordon Sporer\",\n      \"roll_number\": \"098\",\n      \"class_name\": \"0\",\n      \"division\": \"D\",\n      \"academic_year\": \"2019\",\n      \"notification_nos\": \"0586161064\",\n      \"school_id\": 29\n    },\n    {\n      \"id\": 30,\n      \"name\": \"Mr. Roseanna Greenfelder\",\n      \"roll_number\": \"074\",\n      \"class_name\": \"9\",\n      \"division\": \"I\",\n      \"academic_year\": \"2019\",\n      \"notification_nos\": \"0115113616\",\n      \"school_id\": 29\n    }\n  ]\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"4981e71ad59ea093f198f5097c299985\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "d0c86c3d-5e17-450e-82b0-a9304fe8a6ad",
+        "X-Runtime": "0.013299",
+        "Vary": "Origin",
+        "Content-Length": "1617"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

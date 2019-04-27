@@ -1,0 +1,45 @@
+{
+  "resource": "V1",
+  "resource_explanation": null,
+  "http_method": "GET",
+  "route": "/attendance",
+  "description": "List of attendance",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/attendance",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.parenotify.com; version=1",
+        "Content-Type": "application/json",
+        "X-Api-Key": "94b2fff3e7fd9b9c391a2306",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"8\": {\n    \"H\": [\n      {\n        \"id\": 11,\n        \"name\": \"Dewey Bergnaum\",\n        \"roll_number\": \"087\",\n        \"class_name\": \"8\",\n        \"division\": \"H\",\n        \"school_id\": 28\n      }\n    ]\n  },\n  \"2\": {\n    \"Z\": [\n      {\n        \"id\": 12,\n        \"name\": \"Marlin Blanda\",\n        \"roll_number\": \"086\",\n        \"class_name\": \"2\",\n        \"division\": \"Z\",\n        \"school_id\": 28\n      },\n      {\n        \"id\": 19,\n        \"name\": \"Charise Ondricka\",\n        \"roll_number\": \"065\",\n        \"class_name\": \"2\",\n        \"division\": \"Z\",\n        \"school_id\": 28\n      }\n    ],\n    \"R\": [\n      {\n        \"id\": 17,\n        \"name\": \"Pat Toy\",\n        \"roll_number\": \"091\",\n        \"class_name\": \"2\",\n        \"division\": \"R\",\n        \"school_id\": 28\n      }\n    ]\n  },\n  \"0\": {\n    \"D\": [\n      {\n        \"id\": 13,\n        \"name\": \"Hyacinth Nader II\",\n        \"roll_number\": \"006\",\n        \"class_name\": \"0\",\n        \"division\": \"D\",\n        \"school_id\": 28\n      }\n    ]\n  },\n  \"5\": {\n    \"I\": [\n      {\n        \"id\": 14,\n        \"name\": \"Shelia Konopelski\",\n        \"roll_number\": \"032\",\n        \"class_name\": \"5\",\n        \"division\": \"I\",\n        \"school_id\": 28\n      }\n    ],\n    \"A\": [\n      {\n        \"id\": 15,\n        \"name\": \"Faustina Stracke I\",\n        \"roll_number\": \"054\",\n        \"class_name\": \"5\",\n        \"division\": \"A\",\n        \"school_id\": 28\n      }\n    ],\n    \"S\": [\n      {\n        \"id\": 16,\n        \"name\": \"Lacie Corkery\",\n        \"roll_number\": \"068\",\n        \"class_name\": \"5\",\n        \"division\": \"S\",\n        \"school_id\": 28\n      }\n    ],\n    \"W\": [\n      {\n        \"id\": 18,\n        \"name\": \"Charley Leffler\",\n        \"roll_number\": \"005\",\n        \"class_name\": \"5\",\n        \"division\": \"W\",\n        \"school_id\": 28\n      }\n    ]\n  },\n  \"6\": {\n    \"L\": [\n      {\n        \"id\": 20,\n        \"name\": \"Francesco Howe\",\n        \"roll_number\": \"083\",\n        \"class_name\": \"6\",\n        \"division\": \"L\",\n        \"school_id\": 28\n      }\n    ]\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"7e97ca64e6810d2f817f81bcbdb88c2a\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "2c16da02-a8de-427e-8818-723331326736",
+        "X-Runtime": "0.009567",
+        "Vary": "Origin",
+        "Content-Length": "1099"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

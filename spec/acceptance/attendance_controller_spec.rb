@@ -24,4 +24,12 @@ resource "V1" do
       expect(status).to eq(200)
     end
   end
+
+  get '/attendance' do
+    let!(:school) { FactoryBot.create(:school) }
+    let!(:students) { create_list(:student, 10, school: school) }
+    example_request 'List of attendance' do
+      expect(status).to eq(200)
+    end
+  end
 end

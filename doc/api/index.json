@@ -5,6 +5,20 @@
       "explanation": null,
       "examples": [
         {
+          "description": "List of attendance",
+          "link": "v1/list_of_attendance.json",
+          "groups": "all",
+          "route": "/attendance",
+          "method": "get"
+        },
+        {
+          "description": "List of students",
+          "link": "v1/list_of_students.json",
+          "groups": "all",
+          "route": "/students",
+          "method": "get"
+        },
+        {
           "description": "Submitting attendance",
           "link": "v1/submitting_attendance.json",
           "groups": "all",

@@ -18,7 +18,10 @@ require 'factory_bot'
 RSpec.configure do |config|
   FactoryBot.definition_file_paths << File.join(File.dirname(__FILE__), 'factories')
   config.include FactoryBot::Syntax::Methods
-  FactoryBot.find_definitions
+  #FactoryBot.find_definitions
+  config.before(:suite) do
+    FactoryBot.find_definitions
+  end
 
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
