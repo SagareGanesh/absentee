@@ -12,7 +12,7 @@ export default defineMessages({
   },
   Attendance: {
     id: 'Attendance.component.message',
-    defaultMessage: 'Attendance',
+    defaultMessage: 'Mark Attendance',
   },
   Students: {
     id: 'Students.component.message',

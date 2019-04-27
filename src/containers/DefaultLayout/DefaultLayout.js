@@ -43,7 +43,6 @@ class DefaultLayout extends Component {
   }
 
   setLanguage = (event) => {
-    debugger
     this.props.setLanguage(event.target.value);
   }
 

@@ -18,7 +18,7 @@ class DefaultFooter extends Component {
     return (
       <React.Fragment>
         <span>&copy; <FormattedMessage {...messages.Footer} /></span>
-        <span className="ml-auto">
+        <div className="ml-auto">
           <Form inline>
             <FormGroup>
               <Label><FormattedMessage {...messages.Language} />&nbsp;</Label>
@@ -28,7 +28,7 @@ class DefaultFooter extends Component {
               </Input>
             </FormGroup>
           </Form>
-        </span>
+        </div>
       </React.Fragment>
     );
   }

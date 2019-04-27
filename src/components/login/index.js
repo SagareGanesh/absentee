@@ -37,7 +37,7 @@ class LoginComponent extends Component {
                             </h1>
                           </Col>
                           <Col sm={6} align="right">
-                            <img width="70px" height="70px" src={logo} alt="logo" />
+                            <img width="60px" height="60px" src={logo} alt="logo" />
                           </Col>
                         </Row>
                         <p className="text-muted">
