@@ -18,6 +18,8 @@ resource "V1" do
   get "/students" do
     parameter :offset, "Page offset"
     parameter :size,   "Page size", default: 10
+    parameter :q,   "Search query"
+    parameter :class_name,   "Search class_name"
 
     let(:offset) { 0  }
     let(:size)   { 10 }
