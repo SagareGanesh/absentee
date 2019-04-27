@@ -32,12 +32,12 @@ class School < ApplicationRecord
     class_names = self.students.pluck(:class_name).uniq
     filter = "name ilike (?) OR roll_number like (?)"
     students = self.students.where(filter, "%#{params[:q]}%", "%#{params[:q]}%") if params[:q].present?
-    students = students.where(class_name: params[:class_name]) if params[:class_name].present?
+    students = (students || self.students).where(class_name: params[:class_name]) if params[:class_name].present?
     students = students.present? ? students : self.students
     total = students.count
     students = students.offset(params[:offset]).limit(params[:size] || 10).order(:id)
     {
-      total: (total.to_f/params[:size].to_i || 10).ceil,
+      page_count: (total.to_f/params[:size].to_i || 10).ceil,
       class_names: class_names,
       students: students
     }
