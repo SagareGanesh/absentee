@@ -70,7 +70,8 @@ export const fetchStudents = (page=1, size=10, search=null, class_name=null) => 
       method: 'GET',
       headers: {
         'X-API-KEY': 'sdsadsad',
-        'accept': 'application/vnd.parenotify.com; version=1'
+        'accept': 'application/vnd.parenotify.com; version=1',
+        'Content-Type': 'application/json'
       },
     })
     .then((response) => {
@@ -118,7 +119,8 @@ export const createStudent = (data) => {
       method: 'GET',
       headers: {
         'X-API-KEY': 'sdsadsad',
-        'accept': 'application/vnd.parenotify.com; version=1'
+        'accept': 'application/vnd.parenotify.com; version=1',
+        'Content-Type': 'application/json'
       },
       body: JSON.parse(data),
     })
