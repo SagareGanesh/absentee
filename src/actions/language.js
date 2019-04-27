@@ -36,3 +36,25 @@ export const setLanguage = (locale) => {
     })
   }
 }
+
+export const getLanguage = () => {
+  return (dispatch) => {
+      fetch(`${DomainURL}/schools/details`, {
+      method: 'GET',
+      headers: {
+        'X-API-KEY': 'sdsadsad',
+        'accept': 'application/vnd.parenotify.com; version=1',
+        'Content-Type': 'application/json'
+      },
+    })
+    .then((response) => {
+      return response.json()
+    })
+    .then(data => {
+      dispatch(setOnLanguageUpdateSuccess(data.language));
+    })
+    .catch((error) => {
+      errorNotify("Failed to get school language")
+    })
+  }
+}

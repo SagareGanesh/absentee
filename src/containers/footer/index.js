@@ -8,9 +8,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import FooterComponent from '../../components/footer';
-import { setLanguage } from '../../actions/language';
+import { setLanguage, getLanguage } from '../../actions/language';
 
 class Footer extends Component {
+
+  componentDidMount(){
+    this.props.getLanguage();
+  }
+
   setLanguage = (event) => {
     this.props.setLanguage(event.target.value);
   }
@@ -36,6 +41,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   setLanguage: (locale) => dispatch(setLanguage(locale)),
+  getLanguage: () => dispatch(getLanguage())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Footer);

@@ -2,7 +2,7 @@ import React, { Component, Suspense } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { Container } from 'reactstrap';
 import { connect } from 'react-redux';
-import { setLanguage } from '../../actions/language';
+import { setLanguage, getLanguage } from '../../actions/language';
 import { getSchoolDetails } from '../../actions/school';
 import { ToastContainer, toast } from 'react-toastify';
 import { FormattedMessage } from 'react-intl';
@@ -33,6 +33,7 @@ class DefaultLayout extends Component {
 
   componentDidMount(){
     this.props.getSchoolDetails()
+    this.props.getLanguage();
   }
 
   loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
@@ -108,6 +109,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   setLanguage: (locale) => dispatch(setLanguage(locale)),
+  getLanguage: () => dispatch(getLanguage()),
   getSchoolDetails: () => dispatch(getSchoolDetails())
 })
 
