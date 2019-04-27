@@ -1,8 +1,8 @@
 class V1::StudentsController < V1::BaseController
 
   def index
-    school = School.first
-    render json: school.search_students(params), status: 200
+    # school = School.first
+    render json: @current_school.search_students(params), status: 200
   end
 
   def upload
@@ -11,7 +11,7 @@ class V1::StudentsController < V1::BaseController
   end
 
   def create
-    s = Student.new(student_params.merge(school_id: current_school.id))
+    s = Student.new(student_params.merge(school_id: @current_school.id))
     if s.save!
       render json: {message: 'successfully created'}, status: :ok
     else
