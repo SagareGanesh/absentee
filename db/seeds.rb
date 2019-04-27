@@ -21,8 +21,8 @@ if language == 'English'
     contact_no: '91234567890'
   )
 
-  classes   = (1..9).to_a
-  divisions = ('A'..'E').to_a
+  classes   = (1..5).to_a
+  divisions = ('A'..'C').to_a
 
   first_names = %w[Ganesh Akshay Swati Pragati Pramod Yogesh Anil Pinky Payal Priyanka]
   last_names  = %w[Yadav Bhalerav Raut Mayura Khatar Shinde Garud Jadhav Kakade Sagare]
@@ -72,8 +72,8 @@ else
     contact_no: '९९२१९९८४३३'
   )
 
-  classes   = ('१'..'९').to_a
-  divisions = ['अ', 'ब', 'क', 'ड', 'ई']
+  classes   = ('१'..'५').to_a
+  divisions = ['अ', 'ब', 'क']
 
   first_names = %w[गणेश अक्षय स्वाती प्रगती प्रमोद योगेश अनिल पिंकी पायल प्रियंका]
   last_names  = %w[यादव भालेरव राऊत मयूर खटार शिंदे गरुड जाधव काकडे सागर]
