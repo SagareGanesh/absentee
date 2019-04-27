@@ -79,26 +79,37 @@ class StudentComponent extends Component {
           </CardHeader>
           <CardBody>
           <div>
-          <Form inline className="mb-2" style={relativePos}>
-            <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-              <Label for="class_name" className="mr-sm-2"><FormattedMessage {...messages.Class} />:</Label>
-              <Input type="select"
-                     name="selectedClass"
-                     id="selectedClass"
-                     placeholder="Select Class"
-                     onChange={ this.props.handleOnChange }
-                     value={ this.props.selectedClass }
-                     size="sm">
-                {
-                  props.classNames.map((op) => {
-                    return <option value={op}> {op} </option>
-                  })
-                }
-              </Input>
-            </FormGroup>
-            <Button type="button" onClick={ this.props.onSearchClick } color="primary" size="sm" className="mr-1"><FormattedMessage {...messages.Search} /></Button>
-            <Button type="button" onClick={ this.props.reset } size="sm" className="mr-1"><FormattedMessage {...messages.Reset} /></Button>
-          </Form>
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <Label for="class_name" className="mr-sm-2"><FormattedMessage {...messages.Class} />:</Label>
+                </td>
+                <td>
+                  <Input type="select"
+                         name="selectedClass"
+                         id="selectedClass"
+                         placeholder="Select Class"
+                         onChange={ this.props.handleOnChange }
+                         value={ this.props.selectedClass }
+                         size="sm">
+                    {
+                      props.classNames.map((op) => {
+                        return <option value={op}> {op} </option>
+                      })
+                    }
+                  </Input>
+                </td>
+                <td>
+                  <Button type="button" onClick={ this.props.onSearchClick } color="primary" size="sm" className="ml-1 mr-1"><FormattedMessage {...messages.Search} /></Button>
+                </td>
+                <td>
+                  <Button type="button" onClick={ this.props.reset } size="sm" className="mr-1"><FormattedMessage {...messages.Reset} /></Button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
         </div>
             <div>
               <DataTable columns={columns} keyField="id"

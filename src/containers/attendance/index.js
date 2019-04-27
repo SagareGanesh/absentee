@@ -53,10 +53,10 @@ class Attendance extends Component {
               <CardHeader><FormattedMessage {...messages.Filters} /></CardHeader>
               <CardBody>
                 <FormGroup row>
-                  <Col md="2">
-                    <Label> <FormattedMessage {...messages.Class} /> </Label>
+                  <Col sm="1">
+                    <Label> <FormattedMessage {...messages.Class} />: </Label>
                   </Col>
-                  <Col xs="12" md="10">
+                  <Col sm={3}>
                   <Input type="select"
                          name="selectedClass"
                          id="selectedClass"
