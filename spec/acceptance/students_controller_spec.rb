@@ -31,4 +31,27 @@ resource "V1" do
       expect(status).to eq(200)
     end
   end
+
+  post "/students" do
+    parameter :name, "Student Full Name"
+    parameter :roll_number,       "Student Roll Number"
+    parameter :class_name,        "Student Class ex. 9"
+    parameter :division,          "Student Division ex A"
+    parameter :academic_year,     "Academic year ex 2019"
+    parameter :notification_nos,   "Mobile numbers ex. 9096089881"
+
+    let(:name)              {'akshay kakade'}
+    let(:roll_number)       {'2'}
+    let(:class_name)        {'9'}
+    let(:division)          {'A'}
+    let(:academic_year)     {'2019'}
+    let(:notification_nos)  {'9096089881'}
+    let!(:school) { FactoryBot.create(:school) }
+
+    let(:raw_post) { params.to_json }
+
+    example_request "Create Student" do
+      expect(status).to eq(200)
+    end
+  end
 end
