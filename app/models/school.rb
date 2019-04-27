@@ -20,14 +20,6 @@ class School < ApplicationRecord
     students_list
   end
 
-  def self.current_id=(id)
-    Thread.current[:school_id] = id
-  end
-
-  def self.current_id
-    Thread.current[:school_id]
-  end
-
   def search_students(params)
     class_names = self.students.pluck(:class_name).uniq
     filter = "name ilike (?) OR roll_number like (?)"
