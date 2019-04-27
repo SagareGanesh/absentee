@@ -15,7 +15,8 @@ class V1::AttendanceController < V1::BaseController
   # }
   # result = create attendance record
   def submit
+    school = School.first
     result = AttendanceService.new(params).submit
-    render json: { success: result }
+    render json: school.grouped_stundents
   end
 end

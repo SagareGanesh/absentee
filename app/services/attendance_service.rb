@@ -7,7 +7,7 @@ class AttendanceService
 
   def submit
     attendance = create_attendance
-    send_notification(attendance)
+    send_notifications
     true
   end
 
@@ -16,20 +16,22 @@ class AttendanceService
   def create_attendance
     school = School.find params[:school_id]
 
-    school.attendance.create(
-      student_ids: params[:student_ids].split(','),
-      class_name:  params[:class_name],
-      division:    params[:division]
-    )
+    params[:student_ids].each do |student_id|
+      school.attendance.create(
+        student_id:  student_id,
+        class_name:  params[:class_name],
+        division:    params[:division],
+        date: Date.today
+      )
+    end
   end
 
-  def send_notification(attendance)
-    students = Student.where(id: attendance.student_ids)
-                      .select(:name, :notification_nos)
-
-    students.each do |student|
-      student.notification_nos.split(',').each do |mob_no|
+  def send_notifications
+    Attendance.includes(:student).where(date: Date.today).where.not(notified_at: nil)
+      .find_each do |attendance|
+      attendance.student.notification_nos.split(',').each do |mob_no|
         puts "#{mob_no} => Your child #{student.name} is absent today."
+        attendance.update_column(notified_at: DateTime.now)
       end
     end
   end
