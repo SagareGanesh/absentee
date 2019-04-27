@@ -12,7 +12,7 @@ class V1::StudentsController < V1::BaseController
   end
 
   def create
-    s = Student.new(student_params)
+    s = Student.new(student_params.merge(school_id: current_school.id))
     if s.save!
       render json: {message: 'successfully created'}, status: :ok
     else
@@ -31,7 +31,7 @@ class V1::StudentsController < V1::BaseController
 
   private
 
-  def stuedent_params
+  def student_params
     params.require(:student).permit(:name, :roll_number, :class_name, :division, :academic_year, :notification_nos)
   end
 end
