@@ -10,4 +10,12 @@ export default defineMessages({
     id: 'Attendance.component.message',
     defaultMessage: 'Attendance',
   },
+  Filters: {
+    id: 'Filters.component.message',
+    defaultMessage: "Filters"
+  },
+  Class: {
+    id: 'Class.component.message',
+    defaultMessage: 'Class',
+  }
 });

@@ -52,11 +52,11 @@ class Attendance extends Component {
         ) : (
           <React.Fragment>
             <Card>
-              <CardHeader>Filters</CardHeader>
+              <CardHeader><FormattedMessage {...messages.Filters} /></CardHeader>
               <CardBody>
                 <FormGroup row>
                   <Col md="2">
-                    <Label> Class </Label>
+                    <Label> <FormattedMessage {...messages.Class} /> </Label>
                   </Col>
                   <Col xs="12" md="10">
                   <Input type="select"

@@ -5,7 +5,8 @@ import {
 } from 'reactstrap';
 import CustomPagination from './pagination';
 import './dataTable.css';
-
+import { FormattedMessage } from 'react-intl';
+import messages from './messages';
 
 const TableRow = ({ row, columns, methods }) => {
   const tableData = columns.map((column) => {

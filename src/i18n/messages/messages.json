@@ -1,8 +1,68 @@
 [
   {
+    "id": "AttendanceComponent.component.message",
+    "defaultMessage": "AttendanceComponent",
+    "filepath": "src/components/attendanceComponent/messages.js"
+  },
+  {
+    "id": "SubmitAttendance.component.message",
+    "defaultMessage": "Submit",
+    "filepath": "src/components/attendanceComponent/messages.js"
+  },
+  {
+    "id": "Class.component.message",
+    "defaultMessage": "Class",
+    "filepath": "src/components/attendanceComponent/messages.js"
+  },
+  {
+    "id": "Devision.component.message",
+    "defaultMessage": "Division",
+    "filepath": "src/components/attendanceComponent/messages.js"
+  },
+  {
+    "id": "ConfirmSubmitAttendance.component.message",
+    "defaultMessage": "Confirm Submit Attendance",
+    "filepath": "src/components/attendanceComponent/messages.js"
+  },
+  {
+    "id": "ConfirmationText.component.message",
+    "defaultMessage": "Are you sure you want to submit attendance?",
+    "filepath": "src/components/attendanceComponent/messages.js"
+  },
+  {
+    "id": "ConfirmButtonText.component.message",
+    "defaultMessage": "Submit",
+    "filepath": "src/components/attendanceComponent/messages.js"
+  },
+  {
+    "id": "CancelButtonText.component.message",
+    "defaultMessage": "Cancel",
+    "filepath": "src/components/attendanceComponent/messages.js"
+  },
+  {
+    "id": "Filters.component.message",
+    "defaultMessage": "Filters",
+    "filepath": "src/components/attendanceComponent/messages.js"
+  },
+  {
+    "id": "Dashboard.component.message",
+    "defaultMessage": "Dashboard",
+    "filepath": "src/components/dashboard/messages.js"
+  },
+  {
     "id": "Footer.component.message",
-    "defaultMessage": "Footer",
+    "defaultMessage": "Josh Software Pvt. Ltd",
     "filepath": "src/components/footer/messages.js"
+  },
+  {
+    "id": "Language.component.message",
+    "defaultMessage": "Language:",
+    "filepath": "src/components/footer/messages.js"
+  },
+  {
+    "id": "Layout.component.message",
+    "defaultMessage": "Layout",
+    "filepath": "src/components/layout/messages.js"
   },
   {
     "id": "Login.component.message",
@@ -20,8 +80,138 @@
     "filepath": "src/components/login/messages.js"
   },
   {
+    "id": "First.component.message",
+    "defaultMessage": "First",
+    "filepath": "src/components/shared/messages.js"
+  },
+  {
+    "id": "Last.component.message",
+    "defaultMessage": "Last",
+    "filepath": "src/components/shared/messages.js"
+  },
+  {
+    "id": "Search.component.message",
+    "defaultMessage": "Search",
+    "filepath": "src/components/shared/messages.js"
+  },
+  {
+    "id": "Student.component.message",
+    "defaultMessage": "Students",
+    "filepath": "src/components/student/messages.js"
+  },
+  {
+    "id": "New.component.message",
+    "defaultMessage": "New",
+    "filepath": "src/components/student/messages.js"
+  },
+  {
+    "id": "Class.component.message",
+    "defaultMessage": "Class",
+    "filepath": "src/components/student/messages.js"
+  },
+  {
+    "id": "Search.component.message",
+    "defaultMessage": "Search",
+    "filepath": "src/components/student/messages.js"
+  },
+  {
+    "id": "Reset.component.message",
+    "defaultMessage": "Reset",
+    "filepath": "src/components/student/messages.js"
+  },
+  {
+    "id": "RollNo.component.message",
+    "defaultMessage": "Roll No",
+    "filepath": "src/components/student/messages.js"
+  },
+  {
+    "id": "Name.component.message",
+    "defaultMessage": "Name",
+    "filepath": "src/components/student/messages.js"
+  },
+  {
+    "id": "Division.component.message",
+    "defaultMessage": "Division",
+    "filepath": "src/components/student/messages.js"
+  },
+  {
+    "id": "Mobile.component.message",
+    "defaultMessage": "Mobile No",
+    "filepath": "src/components/student/messages.js"
+  },
+  {
+    "id": "Action.component.message",
+    "defaultMessage": "Action",
+    "filepath": "src/components/student/messages.js"
+  },
+  {
+    "id": "StudentNewComponent.component.message",
+    "defaultMessage": "StudentNewComponent",
+    "filepath": "src/components/studentNewComponent/messages.js"
+  },
+  {
+    "id": "AddNew.component.message",
+    "defaultMessage": "Add New",
+    "filepath": "src/components/studentNewComponent/messages.js"
+  },
+  {
+    "id": "Attendance.component.message",
+    "defaultMessage": "Attendance",
+    "filepath": "src/containers/attendance/messages.js"
+  },
+  {
+    "id": "Filters.component.message",
+    "defaultMessage": "Filters",
+    "filepath": "src/containers/attendance/messages.js"
+  },
+  {
+    "id": "Class.component.message",
+    "defaultMessage": "Class",
+    "filepath": "src/containers/attendance/messages.js"
+  },
+  {
+    "id": "DefaultFooter.component.message",
+    "defaultMessage": "Josh Software Pvt. Ltd.",
+    "filepath": "src/containers/DefaultLayout/messages.js"
+  },
+  {
+    "id": "DefaultFooterLanguage.component.message",
+    "defaultMessage": "Language:",
+    "filepath": "src/containers/DefaultLayout/messages.js"
+  },
+  {
+    "id": "Setting.component.message",
+    "defaultMessage": "Setting",
+    "filepath": "src/containers/DefaultLayout/messages.js"
+  },
+  {
+    "id": "Logout.component.message",
+    "defaultMessage": "Logout",
+    "filepath": "src/containers/DefaultLayout/messages.js"
+  },
+  {
+    "id": "Attendance.component.message",
+    "defaultMessage": "Attendance",
+    "filepath": "src/containers/DefaultLayout/messages.js"
+  },
+  {
+    "id": "Students.component.message",
+    "defaultMessage": "Students",
+    "filepath": "src/containers/DefaultLayout/messages.js"
+  },
+  {
     "id": "App.component.message",
     "defaultMessage": "App",
-    "filepath": "src/containers/app/messages.js"
+    "filepath": "src/messages.js"
+  },
+  {
+    "id": "Attendance.component.message",
+    "defaultMessage": "Attendance",
+    "filepath": "src/messages.js"
+  },
+  {
+    "id": "Students.component.message",
+    "defaultMessage": "Students",
+    "filepath": "src/messages.js"
   }
 ]

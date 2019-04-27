@@ -17,27 +17,27 @@ const linkFormatter = (cell, row, methods) => (
 const columns = [
 {
   dataField: 'roll_number',
-  text: 'Roll No',
+  text: <FormattedMessage {...messages.RollNo} />,
 },
 {
   dataField: 'name',
-  text: 'Name',
+  text: <FormattedMessage {...messages.Name} />,
 },
 {
   dataField: 'class_name',
-  text: 'Class'
+  text: <FormattedMessage {...messages.Class} />
 },
 {
   dataField: 'division',
-  text: 'Division',
+  text: <FormattedMessage {...messages.Division} />,
 },
 {
   dataField: 'notification_nos',
-  text: 'Mobile No',
+  text: <FormattedMessage {...messages.Mobile} />,
 },
 {
   dataField: 'action',
-  text: 'Action',
+  text: <FormattedMessage {...messages.Action} />,
   formatter: linkFormatter,
 }
 ];
@@ -54,7 +54,7 @@ class StudentComponent extends Component {
           <CardHeader>
             <Row>
               <Col md={6}>
-                <i className="fa fa-align-justify"></i>Students
+                <i className="fa fa-align-justify"></i>&nbsp; <FormattedMessage {...messages.Students} />
               </Col>
               <Col md={6} align="right">
                 <Row>
@@ -63,7 +63,7 @@ class StudentComponent extends Component {
                     <div className="card-header-actions">
                       <Link to="/students/new" style={{ textDecoration: 'none' }}>
                         <Button block color="success" size="sm">
-                          <b>+ New</b>
+                          <b>+ <FormattedMessage {...messages.New} /></b>
                         </Button>
                       </Link>
                     </div>
@@ -82,7 +82,7 @@ class StudentComponent extends Component {
           <div>
           <Form inline className="mb-2" style={relativePos}>
             <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-              <Label for="class_name" className="mr-sm-2">Class:</Label>
+              <Label for="class_name" className="mr-sm-2"><FormattedMessage {...messages.Class} />:</Label>
               <Input type="select"
                      name="selectedClass"
                      id="selectedClass"
@@ -97,8 +97,8 @@ class StudentComponent extends Component {
                 }
               </Input>
             </FormGroup>
-            <Button type="button" onClick={ this.props.onSearchClick } color="primary" size="sm" className="mr-1">Search</Button>
-            <Button type="button" onClick={ this.props.reset } size="sm" className="mr-1">Reset</Button>
+            <Button type="button" onClick={ this.props.onSearchClick } color="primary" size="sm" className="mr-1"><FormattedMessage {...messages.Search} /></Button>
+            <Button type="button" onClick={ this.props.reset } size="sm" className="mr-1"><FormattedMessage {...messages.Reset} /></Button>
           </Form>
         </div>
             <div>

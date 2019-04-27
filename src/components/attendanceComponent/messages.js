@@ -6,9 +6,9 @@
 import { defineMessages } from 'react-intl';
 
 export default defineMessages({
-  AttendanceComponent: {
+  Attendance: {
     id: 'AttendanceComponent.component.message',
-    defaultMessage: 'AttendanceComponent',
+    defaultMessage: 'Attendance',
   },
   SubmitAttendance: {
     id: 'SubmitAttendance.component.message',
@@ -21,5 +21,25 @@ export default defineMessages({
   Division: {
     id: 'Devision.component.message',
     defaultMessage: 'Division',
-  }
+  },
+  ConfirmSubmitAttendance: {
+    id: 'ConfirmSubmitAttendance.component.message',
+    defaultMessage: 'Confirm Submit Attendance',
+  },
+  ConfirmationText: {
+    id: 'ConfirmationText.component.message',
+    defaultMessage: "Are you sure you want to submit attendance?"
+  },
+  ConfirmButtonText: {
+    id: 'ConfirmButtonText.component.message',
+    defaultMessage: "Submit"
+  },
+  CancelButtonText: {
+    id: 'CancelButtonText.component.message',
+    defaultMessage: "Cancel"
+  },
+  Filters: {
+    id: 'Filters.component.message',
+    defaultMessage: "Filters"
+  },
 });

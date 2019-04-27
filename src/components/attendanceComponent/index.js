@@ -47,11 +47,12 @@ class AttendanceComponent extends Component {
     let result = await confirm({
       title: (
           <React.Fragment>
-            <strong>Submit Attendance</strong>
+            <strong><FormattedMessage {...messages.ConfirmSubmitAttendance} /></strong>
           </React.Fragment>
       ),
-      message: "Are you sure you want to submit attendance?",
-      confirmText: "Submit",
+      message: <FormattedMessage {...messages.ConfirmationText} />,
+      confirmText: <FormattedMessage {...messages.ConfirmButtonText} />,
+      cancelText: <FormattedMessage {...messages.CancelButtonText} />,
       confirmColor: "primary",
       cancelColor: "link text-danger"
     });

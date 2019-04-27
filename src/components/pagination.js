@@ -59,7 +59,7 @@ const CustomPagination = (props) => {
     </PaginationItem>
   );
 
-  let diff = currentPage - 1  
+  let diff = currentPage - 1
 
   const previousPages = []
 
@@ -76,7 +76,7 @@ const CustomPagination = (props) => {
       </PaginationItem>
       )
     )
-  } 
+  }
   else if(diff >= 2) {
     for (let i = (currentPage - 2); i < currentPage ; i += 1) {
       previousPages.push((
@@ -138,7 +138,7 @@ const CustomPagination = (props) => {
       </PaginationItem>
       )
     )
-  } 
+  }
   else if(lastDiff >= 2) {
     for (let i = (currentPage + 1 ); i <= (currentPage + 2) ; i += 1) {
       nextPages.push((
@@ -158,7 +158,7 @@ const CustomPagination = (props) => {
 
 
   return (
-    <>
+    <React.Fragment>
       <div>
         Page { currentPage } of { totalPages }
       </div>
@@ -171,7 +171,7 @@ const CustomPagination = (props) => {
         { next }
         { last }
       </Pagination>
-    </>
+    </React.Fragment>
   );
 }
 

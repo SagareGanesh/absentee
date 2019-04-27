@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import { setLanguage } from '../../actions/language';
 import { getSchoolDetails } from '../../actions/school';
 import { ToastContainer, toast } from 'react-toastify';
+import { FormattedMessage } from 'react-intl';
+import messages from './messages';
 
 import {
   AppAside,
@@ -41,6 +43,7 @@ class DefaultLayout extends Component {
   }
 
   setLanguage = (event) => {
+    debugger
     this.props.setLanguage(event.target.value);
   }
 
@@ -90,7 +93,7 @@ class DefaultLayout extends Component {
             </Suspense>
           </AppAside>
         </div>
-        <AppFooter>
+        <AppFooter fixed>
           <Suspense fallback={this.loading()}>
             <DefaultFooter locale={this.props.locale}
                            setLanguage={this.setLanguage}/>

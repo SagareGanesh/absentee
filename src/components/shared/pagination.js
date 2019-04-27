@@ -7,6 +7,8 @@ import {
 
 import PropTypes from 'prop-types';
 import './pagination.css';
+import { FormattedMessage } from 'react-intl';
+import messages from './messages';
 
 const CustomPagination = (props) => {
   const ranges = [];
@@ -25,7 +27,7 @@ const CustomPagination = (props) => {
         onClick={() => props.handlePagination(1)}
         disabled={(currentPage === 1)}
       >
-          First
+        <FormattedMessage {...messages.First} />
       </PaginationLink>
     </PaginationItem>
   );
@@ -38,7 +40,7 @@ const CustomPagination = (props) => {
         onClick={() => props.handlePagination(totalPages)}
         disabled={(currentPage === totalPages)}
       >
-          Last
+        <FormattedMessage {...messages.Last} />
       </PaginationLink>
     </PaginationItem>
   );
