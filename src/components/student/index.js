@@ -57,26 +57,25 @@ class StudentComponent extends Component {
                 <i className="fa fa-align-justify"></i>&nbsp; <FormattedMessage {...messages.Students} />
               </Col>
               <Col md={6} align="right">
-                <Row>
-                  <Col md={9}></Col>
-                  <Col md={2}>
-                    <div className="card-header-actions">
-                      <Link to="/students/new" style={{ textDecoration: 'none' }}>
-                        <Button block color="success" size="sm">
-                          <b>+ <FormattedMessage {...messages.New} /></b>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <Link to="/students/new" style={{ textDecoration: 'none' }}>
+                            <Button block color="success" size="sm">
+                              <b>+ <FormattedMessage {...messages.New} /></b>
+                            </Button>
+                          </Link>
+                        </td>
+                        <td>
+                        <Button onClick={ this.props.openUpload } block color="warning" size="sm" className="cui-cloud-upload mr-1">
                         </Button>
-                      </Link>
-                    </div>
-                  </Col>
-                  <Col md={1}>
-                    <div className="card-header-actions">
-                      <Button onClick={ this.props.openUpload } block color="warning" size="sm" className="cui-cloud-upload mr-1">
-                      </Button>
-                    </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                   </Col>
                 </Row>
-              </Col>
-            </Row>
           </CardHeader>
           <CardBody>
           <div>
@@ -89,7 +88,7 @@ class StudentComponent extends Component {
                      placeholder="Select Class"
                      onChange={ this.props.handleOnChange }
                      value={ this.props.selectedClass }
-                     size="md">
+                     size="sm">
                 {
                   props.classNames.map((op) => {
                     return <option value={op}> {op} </option>
