@@ -13,7 +13,6 @@ import { FormattedMessage } from 'react-intl';
 import { Label, Input, FormGroup, Col, Card, CardBody, CardHeader } from 'reactstrap';
 import Spinner from '../../components/shared/spinner';
 import messages from './messages';
-import { getSchoolDetails } from '../../actions/school';
 
 class Attendance extends Component {
   constructor(props) {
@@ -25,7 +24,6 @@ class Attendance extends Component {
 
   componentDidMount() {
     this.props.fetchAttendance();
-    this.props.getSchoolDetails();
   }
 
   submitAttendance = (data) => {
@@ -66,6 +64,7 @@ class Attendance extends Component {
                          onChange={(event) => this.handleChange(event)}
                          value={ this.props.class_name }
                          size="md">
+                         <option value=''> select </option>
                          {
                            result.data.class_names.map((op) => {
                              return <option value={op}> {op} </option>
@@ -116,7 +115,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   fetchAttendance: () => dispatch(fetchAttendance()),
   submitAttendance: (data) => dispatch(submitAttendance(data)),
-  getSchoolDetails: () => dispatch(getSchoolDetails()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Attendance);
