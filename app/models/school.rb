@@ -78,6 +78,31 @@ class School < ApplicationRecord
     end
   end
 
+  def notify_principle
+    remaining_attendance = {}
+
+    class_wise_division.each do |class_name, divisions|
+      divisions.each do |division|
+        remaining_attendance[class_name] ||= []
+        if attendance_status.where(class_name: class_name, division: division, date: Date.today).blank?
+          remaining_attendance[class_name] << division
+        end
+      end
+    end
+
+    remaining_attendance.each{ |k, v| remaining_attendance.delete(k) if v.empty? }
+
+    if remaining_attendance.present?
+      msg = "Attendance is not registered for following class : "
+      remaining_attendance.each{ |class_name, divisions| divisions.each{ |div| msg += "#{class_name}-#{div}, " }}
+
+      users.where(role: User::ROLES[:principal]).each do |principal|
+        MessageService.new(msg, principal.contact_no, principal).send_sms
+      end
+    end
+  end
+
+
   def self.current_id=(id)
     Thread.current[:school_id] = id
   end
