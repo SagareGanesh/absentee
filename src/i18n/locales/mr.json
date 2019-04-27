@@ -38,5 +38,6 @@
   "SubmitAttendance.component.message": "नोंद करा",
   "UploadHeader.component.message": "विद्यार्थी डेटा अपलोड करा",
   "Upload.component.message": "अपलोड करा",
-  "Cancel.component.message": "रद्द करा"
+  "Cancel.component.message": "रद्द करा",
+  "Elevate.component.message": "पुढील वर्षात प्रवेश"
 }

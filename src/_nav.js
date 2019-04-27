@@ -7,12 +7,17 @@ export default {
     {
       name: <FormattedMessage {...messages.Attendance} />,
       url: '/attendance',
-      icon: 'icon-clock',
+      icon: 'icon-clock'
     },
     {
       name: <FormattedMessage {...messages.Students} />,
       url: '/students',
-      icon: 'icon-user',
+      icon: 'icon-user'
+    },
+    {
+      name: <FormattedMessage {...messages.Elevate} />,
+      icon: 'fa fa-level-up',
+      url: '/elevate'
     }
   ],
 };

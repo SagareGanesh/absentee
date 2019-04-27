@@ -18,4 +18,8 @@ export default defineMessages({
     id: 'Students.component.message',
     defaultMessage: 'Students',
   },
+  Elevate: {
+    id: 'Elevate.component.message',
+    defaultMessage: 'Elevate Students',
+  }
 });
