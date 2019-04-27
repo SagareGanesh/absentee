@@ -1,4 +1,5 @@
 import { toast } from 'react-toastify';
+import { DomainURL } from '../utils/constant';
 
 const successNotify = (msg) => toast.success(msg);
 const errorNotify = (msg) => toast.error(msg);
@@ -12,7 +13,7 @@ const setSchool = (school) => {
 
 export const getSchoolDetails = () => {
   return (dispatch) => {
-      fetch(`http://192.168.1.87:3000/schools/details`, {
+      fetch(`${DomainURL}/schools/details`, {
       method: 'GET',
       headers: {
         'X-API-KEY': 'sdsadsad',

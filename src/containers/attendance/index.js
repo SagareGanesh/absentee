@@ -10,12 +10,22 @@ import { connect } from 'react-redux';
 import { fetchAttendance, submitAttendance } from '../../actions/attendance';
 import AttendanceComponent from '../../components/attendanceComponent';
 import { FormattedMessage } from 'react-intl';
+import { Label, Input, FormGroup, Col, Card, CardBody, CardHeader } from 'reactstrap';
 import Spinner from '../../components/shared/spinner';
 import messages from './messages';
+import { getSchoolDetails } from '../../actions/school';
 
 class Attendance extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedClass: null,
+    }
+  }
+
   componentDidMount() {
     this.props.fetchAttendance();
+    this.props.getSchoolDetails();
   }
 
   submitAttendance = (data) => {
@@ -27,24 +37,62 @@ class Attendance extends Component {
     });
   }
 
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    })
+  }
   render() {
     const { data, loading } = this.props.attendance;
+    const { result } = this.props;
     return (
       <div className="pt-3">
         { loading ? (
           <Spinner />
         ) : (
           <React.Fragment>
-            { Object.keys(data).map((standard, index) => (
+            <Card>
+              <CardHeader>Filters</CardHeader>
+              <CardBody>
+                <FormGroup row>
+                  <Col md="2">
+                    <Label> Class </Label>
+                  </Col>
+                  <Col xs="12" md="10">
+                  <Input type="select"
+                         name="selectedClass"
+                         id="selectedClass"
+                         placeholder="Select Class"
+                         onChange={(event) => this.handleChange(event)}
+                         value={ this.props.class_name }
+                         size="md">
+                         {
+                           result.data.class_names.map((op) => {
+                             return <option value={op}> {op} </option>
+                           })
+                         }
+                  </Input>
+                  </Col>
+                </FormGroup>
+              </CardBody>
+            </Card>
+            { Object.keys(data.students).map((standard, index) => (
                 <React.Fragment>
-                  { Object.keys(data[standard]).map((division, index) => (
-                    <AttendanceComponent
-                      standard={standard}
-                      division={division}
-                      list={data[standard][division]}
-                      submitAttendance={this.submitAttendance}
-                    />
-                  ))}
+                  { (!this.state.selectedClass || standard === this.state.selectedClass) ? (
+                    <div>
+                    { Object.keys(data.students[standard]).map((division, index) => (
+                      <AttendanceComponent
+                        standard={standard}
+                        division={division}
+                        list={data.students[standard][division]}
+                        status={data.attendance[standard][division]}
+                        submitAttendance={this.submitAttendance}
+                      />
+                    ))}
+                    </div>
+                  ) : (
+                    <div />
+                  )}
                 </React.Fragment>
             ))}
           </React.Fragment>
@@ -62,11 +110,13 @@ Attendance.propTypes = {
 
 const mapStateToProps = state => ({
   attendance: state.attendanceReduecr,
+  result: state.studentReducer,
 })
 
 const mapDispatchToProps = dispatch => ({
   fetchAttendance: () => dispatch(fetchAttendance()),
   submitAttendance: (data) => dispatch(submitAttendance(data)),
+  getSchoolDetails: () => dispatch(getSchoolDetails()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Attendance);

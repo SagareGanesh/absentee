@@ -12,7 +12,7 @@ export default defineMessages({
   },
   SubmitAttendance: {
     id: 'SubmitAttendance.component.message',
-    defaultMessage: 'Submit Attendance',
+    defaultMessage: 'Submit',
   },
   Class: {
     id: 'Class.component.message',

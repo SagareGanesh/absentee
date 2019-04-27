@@ -3,7 +3,7 @@ export default {
     {
       name: 'Attendance',
       url: '/attendance',
-      icon: 'icon-user',
+      icon: 'icon-clock',
     },
     {
       name: 'Students',

@@ -1,6 +1,9 @@
 
 const initialState = {
-  data: {},
+  data: {
+    students: {},
+    attendance: {},
+  },
   loading: false,
   error: null,
 };
@@ -8,7 +11,10 @@ const initialState = {
 const attendanceReduecr = (state = initialState, action) => {
  switch (action.type) {
   case 'FETCH_ATTENDANCE': return {
-    data: {},
+    data: {
+      students: {},
+      attendance: {},
+    },
     loading: true,
     error: null,
   }
@@ -18,7 +24,10 @@ const attendanceReduecr = (state = initialState, action) => {
     error: null,
   }
   case 'FETCH_ATTENDANCE_FAIL': return {
-    data: {},
+    data: {
+      students: {},
+      attendance: {},
+    },
     loading: false,
     error: action.payload,
   }

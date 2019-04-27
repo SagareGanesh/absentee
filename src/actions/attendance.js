@@ -1,3 +1,5 @@
+import { DomainURL } from '../utils/constant';
+
 const fetchAttendanceInitiate = () => {
   return {
     type: 'FETCH_ATTENDANCE'
@@ -21,7 +23,7 @@ const fetchAttendanceFail = (error) => {
 export const fetchAttendance = () => {
   return (dispatch) => {
     dispatch(fetchAttendanceInitiate());
-    fetch(`http://192.168.1.87:3000/attendance`, {
+    fetch(`${DomainURL}/attendance`, {
       method: 'GET',
       headers: {
         'X-API-KEY': 'sdsadsad',
@@ -63,7 +65,7 @@ const submitAttendanceFail = (error) => {
 export const submitAttendance = (data) => {
   return (dispatch) => {
     dispatch(fetchAttendanceInitiate());
-    fetch(`http://192.168.1.87:3000/attendance/submit`, {
+    fetch(`${DomainURL}/attendance/submit`, {
       method: 'POST',
       headers: {
         'X-API-KEY': 'sdsadsad',

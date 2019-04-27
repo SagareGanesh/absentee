@@ -61,7 +61,7 @@ class AttendanceComponent extends Component {
   }
   render() {
     const { absentStudents } = this.state;
-    const { standard, division, list } = this.props;
+    const { standard, division, list, status } = this.props;
     return (
       <Card>
         <CardBody>
@@ -78,7 +78,7 @@ class AttendanceComponent extends Component {
                 </span>
               </Col>
               <Col sm={3} align="right">
-                <Button size="sm" onClick={() => this.submitAttendance({ standard, division, absentStudents, schoolId: list[0].school_id })} color="primary">
+                <Button size="sm" disabled={status} onClick={() => this.submitAttendance({ standard, division, absentStudents, schoolId: list[0].school_id })} color="primary">
                    <FormattedMessage {...messages.SubmitAttendance} />
                 </Button>
               </Col>
@@ -90,8 +90,8 @@ class AttendanceComponent extends Component {
                  <UncontrolledTooltip placement="top" target={"student" + student.id }>
                    {student.name}
                  </UncontrolledTooltip>
-                 <Button onClick={() => this.setAbsent(student.id)} id={ "student" + student.id}
-                   color={absentStudents.includes(student.id) ? "danger" : "success"} className="student mr-3" key={index}>
+                 <Button disabled={status} onClick={() => this.setAbsent(student.id)} id={ "student" + student.id}
+                   color={absentStudents.includes(student.id) ? "danger" : "success"} className="student mr-3 mb-3" key={index}>
                    <div>{student.roll_number}</div>
                  </Button>
                </React.Fragment>

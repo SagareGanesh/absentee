@@ -1,4 +1,5 @@
 import { toast } from 'react-toastify';
+import { DomainURL } from '../utils/constant';
 
 const successNotify = (msg) => toast.success(msg);
 const errorNotify = (msg) => toast.error(msg);
@@ -44,7 +45,7 @@ export const fetchStudents = (page=1, size=10, search=null, class_name=null) => 
     if(search){ params+= `&q=${search}` }
     if(class_name){ params+= `&class_name=${class_name}` }
 
-    fetch(`http://192.168.1.87:3000/students?${params}`, {
+    fetch(`${DomainURL}/students?${params}`, {
       method: 'GET',
       headers: {
         'X-API-KEY': 'sdsadsad',
@@ -67,7 +68,7 @@ export const fetchStudents = (page=1, size=10, search=null, class_name=null) => 
 export const upload = (data) => {
   return (dispatch) => {
     // dispatch(fetchAttendanceInitiate());
-    fetch(`http://192.168.1.87:3000/students/upload`, {
+    fetch(`${DomainURL}/students/upload`, {
       method: 'POST',
       headers: {
         'X-API-KEY': 'sdsadsad',
@@ -85,6 +86,49 @@ export const upload = (data) => {
     .catch((error) => {
       dispatch(fetchUploadFail(error));
       errorNotify("Failed to upload student details")
+    })
+  }
+}
+
+const createStudentInitiate = () => {
+  return {
+    type: 'CREATE_STUDENT'
+  }
+}
+
+const createStudentSuccess = (data) => {
+  return {
+    type: 'CREATE_STUDENT_SUCCESS',
+    payload: data,
+  }
+}
+
+const createStudentFail = (error) => {
+  return {
+    type: 'CREATE_STUDENT_FAIL',
+    payload: error,
+  }
+}
+
+export const createStudent = (data) => {
+  return (dispatch) => {
+    dispatch(createStudentInitiate());
+    fetch(`${DomainURL}/students`, {
+      method: 'GET',
+      headers: {
+        'X-API-KEY': 'sdsadsad',
+        'accept': 'application/vnd.parenotify.com; version=1'
+      },
+      body: JSON.parse(data),
+    })
+    .then((response) => {
+      return response.json()
+    })
+    .then(data => {
+      dispatch(createStudentSuccess(data));
+    })
+    .catch((error) => {
+      dispatch(createStudentFail(error));
     })
   }
 }
