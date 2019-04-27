@@ -86,17 +86,19 @@ class AttendanceComponent extends Component {
             </Row>
             <hr />
             <Row className="ml-0">
-             { list.map((student,index) => (
-               <React.Fragment>
-                 <UncontrolledTooltip placement="top" target={"student" + student.id }>
-                   {student.name}
-                 </UncontrolledTooltip>
-                 <Button disabled={status} onClick={() => this.setAbsent(student.id)} id={ "student" + student.id}
-                   color={absentStudents.includes(student.id) ? "danger" : "success"} className="student mr-3 mb-3" key={index}>
-                   <div>{student.roll_number}</div>
-                 </Button>
-               </React.Fragment>
-             ))}
+             {
+               list && list.length && list.map((student,index) => (
+                                       <React.Fragment>
+                                         <UncontrolledTooltip placement="top" target={"student" + student.id }>
+                                           {student.name}
+                                         </UncontrolledTooltip>
+                                         <Button disabled={status} onClick={() => this.setAbsent(student.id)} id={ "student" + student.id}
+                                           color={absentStudents.includes(student.id) ? "danger" : "success"} className="student mr-3 mb-3" key={index}>
+                                           <div>{student.roll_number}</div>
+                                         </Button>
+                                       </React.Fragment>
+                                     ))
+           }
            </Row>
           </React.Fragment>
         </CardBody>

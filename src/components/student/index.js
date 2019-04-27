@@ -94,9 +94,9 @@ class StudentComponent extends Component {
                          value={ this.props.selectedClass }
                          size="sm">
                     {
-                      props.classNames.map((op) => {
-                        return <option value={op}> {op} </option>
-                      })
+                      props.classNames && props.classNames.length && props.classNames.map((op) => {
+                                                    return <option value={op}> {op} </option>
+                                                  })
                     }
                   </Input>
                 </td>
@@ -112,15 +112,16 @@ class StudentComponent extends Component {
 
         </div>
             <div>
-              <DataTable columns={columns} keyField="id"
-                         data={props.studentData}
-                         sizePerPage={props.sizePerPage}
-                         totalSize={props.totalSize}
-                         handlePagination={props.handlePagination}
-                         onSearch={props.onSearch}
-                         search={props.search}
-                         page={props.page}
-              />
+              {
+                props.studentData && props.studentData.length && <DataTable columns={columns} keyField="id"
+                                                                   data={props.studentData}
+                                                                   sizePerPage={props.sizePerPage}
+                                                                   totalSize={props.totalSize}
+                                                                   handlePagination={props.handlePagination}
+                                                                   onSearch={props.onSearch}
+                                                                   search={props.search}
+                                                                   page={props.page}/>
+              }
             </div>
             <UploadModal
               isUploadModalOpen={props.isUploadModalOpen}
