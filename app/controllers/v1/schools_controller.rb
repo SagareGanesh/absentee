@@ -9,13 +9,13 @@ class V1::SchoolsController < V1::BaseController
 
   def update
     school = School.find params[:id]
-    school.update_attributes(student_params)
+    school.update_attributes(school_params)
     render json: {message: 'language updated successfully'}, status: :ok 
   end
 
   private
 
-  def student_params
+  def school_params
     params.require(:school).permit(:language)
   end
 end
